@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<litepal>
+    <dbname value="news" ></dbname>
+
+    <version value="1" ></version>
+
+    <list>
+        <mapping class="com.chaychan.news.model.entity.NewsRecord"></mapping>
+    </list>
+</litepal>

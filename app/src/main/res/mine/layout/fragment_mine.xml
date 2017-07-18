@@ -1,0 +1,416 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+
+    <com.chaychan.uikit.HeaderZoomLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+            <!--头部背景-->
+            <ImageView
+                android:id="@+id/iv_bg"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:background="@mipmap/mine_head_bg"
+                />
+
+            <!--头部用户信息-->
+            <LinearLayout
+                android:id="@+id/ll_top"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/ll_count"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal"
+                >
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:src="@mipmap/my_avatar"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="1"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text="ChayChan"
+                    android:textColor="@color/white"
+                    android:textSize="16.0sp"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@mipmap/right_arrow"
+                    />
+
+
+            </LinearLayout>
+
+            <!--头部动态、粉丝、7天访客-->
+            <LinearLayout
+                android:id="@+id/ll_count"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/iv_bg"
+                android:layout_marginBottom="23.0dip"
+                android:layout_marginTop="18.0dip"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0.0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:alpha="0.9"
+                        android:text="0"
+                        android:textColor="@color/white"
+                        android:textSize="16.0sp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:alpha="0.5"
+                        android:text="@string/dynamic"
+                        android:textColor="@color/white"
+                        android:textSize="12.0sp"/>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="0.5dip"
+                    android:layout_height="38.0dip"
+                    android:background="@color/mine_divider"/>
+
+                <LinearLayout
+                    android:layout_width="0.0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:alpha="0.9"
+                        android:text="0"
+                        android:textColor="@color/white"
+                        android:textSize="16.0sp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:alpha="0.5"
+                        android:text="@string/fans"
+                        android:textColor="@color/white"
+                        android:textSize="12.0sp"/>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="0.5dip"
+                    android:layout_height="38.0dip"
+                    android:background="@color/mine_divider"/>
+
+                <LinearLayout
+                    android:layout_width="0.0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:alpha="0.9"
+                        android:text="0"
+                        android:textColor="@color/white"
+                        android:textSize="16.0sp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:alpha="0.5"
+                        android:text="@string/week_visitor"
+                        android:textColor="@color/white"
+                        android:textSize="12.0sp"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!--内容-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ll_count"
+                android:orientation="vertical"
+                >
+
+                <!--收藏、历史、夜间-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="64dp"
+                    android:orientation="horizontal"
+                    >
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:drawablePadding="5dp"
+                        android:drawableTop="@mipmap/my_collect"
+                        android:gravity="center"
+                        android:text="@string/collect"
+                        android:textColor="@color/common_text_color"
+                        android:textSize="12sp"
+                        />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:drawablePadding="5dp"
+                        android:drawableTop="@mipmap/my_history"
+                        android:gravity="center"
+                        android:text="@string/history"
+                        android:textColor="@color/common_text_color"
+                        android:textSize="12sp"
+                        />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:drawablePadding="5dp"
+                        android:drawableTop="@mipmap/night_mode"
+                        android:gravity="center"
+                        android:text="@string/night"
+                        android:textColor="@color/common_text_color"
+                        android:textSize="12sp"
+                        />
+
+                </LinearLayout>
+
+                <View
+                    style="@style/MineFunctionDivider"
+                    />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"
+                    android:background="@color/mine_function_span"
+                    />
+
+                <View
+                    style="@style/MineFunctionDivider"
+                    />
+
+                <!--消息通知-->
+                <RelativeLayout
+                    style="@style/MineFunctionRl"
+                    >
+
+                    <TextView
+                        style="@style/MineFunctionTvLeft"
+                        android:text="@string/message_inform"
+                        android:textColor="@color/common_text_color"
+                        />
+
+                    <ImageView
+                        style="@style/MineFunctionArrow"
+                        android:background="@mipmap/setting_arrow"
+                        />
+
+                </RelativeLayout>
+
+                <View
+                    style="@style/MineFunctionDivider"
+                    />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"
+                    android:background="@color/mine_function_span"
+                    />
+
+                <View
+                    style="@style/MineFunctionDivider"
+                    />
+
+                <!--头条商城-->
+                <RelativeLayout
+                    style="@style/MineFunctionRl"
+                    >
+
+                    <TextView
+                        style="@style/MineFunctionTvLeft"
+                        android:text="@string/mall"
+                        android:textColor="@color/common_text_color"
+                        />
+
+                    <ImageView
+                        android:id="@+id/iv_mall_arrow"
+                        style="@style/MineFunctionArrow"
+                        android:background="@mipmap/setting_arrow"
+                        />
+
+                    <TextView
+                        style="@style/MineFunctionTvRight"
+                        android:layout_toLeftOf="@+id/iv_mall_arrow"
+                        android:text="@string/mall_bonus"/>
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_marginLeft="15dp"
+                    style="@style/MineFunctionDivider"
+                    />
+
+                <!--京东特供-->
+                <RelativeLayout
+                    style="@style/MineFunctionRl"
+                    >
+
+                    <TextView
+                        style="@style/MineFunctionTvLeft"
+                        android:text="@string/JD"
+                        android:textColor="@color/common_text_color"
+                        />
+
+                    <ImageView
+                        android:id="@+id/iv_jd_arrow"
+                        style="@style/MineFunctionArrow"
+                        android:background="@mipmap/setting_arrow"
+                        />
+
+                    <TextView
+                        style="@style/MineFunctionTvRight"
+                        android:layout_toLeftOf="@+id/iv_jd_arrow"
+                        android:text="@string/JD_bonus"/>
+
+                </RelativeLayout>
+
+                <View
+                    style="@style/MineFunctionDivider"
+                    />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"
+                    android:background="@color/mine_function_span"
+                    />
+
+                <View
+                    style="@style/MineFunctionDivider"
+                    />
+
+                <!--我要爆料-->
+                <RelativeLayout
+                    style="@style/MineFunctionRl"
+                    >
+
+                    <TextView
+                        style="@style/MineFunctionTvLeft"
+                        android:text="@string/provide_news"
+                        android:textColor="@color/common_text_color"
+                        />
+
+                    <ImageView
+                        style="@style/MineFunctionArrow"
+                        android:background="@mipmap/setting_arrow"
+                        />
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_marginLeft="15dp"
+                    style="@style/MineFunctionDivider"
+                    />
+
+                <!--用户反馈-->
+                <RelativeLayout
+                    style="@style/MineFunctionRl"
+                    >
+
+                    <TextView
+                        style="@style/MineFunctionTvLeft"
+                        android:text="@string/feed_back"
+                        android:textColor="@color/common_text_color"
+                        />
+
+                    <ImageView
+                        style="@style/MineFunctionArrow"
+                        android:background="@mipmap/setting_arrow"
+                        />
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_marginLeft="15dp"
+                    style="@style/MineFunctionDivider"
+                    />
+
+                <!--系统设置-->
+                <RelativeLayout
+                    style="@style/MineFunctionRl"
+                    >
+
+                    <TextView
+                        style="@style/MineFunctionTvLeft"
+                        android:text="@string/settings"
+                        android:textColor="@color/common_text_color"
+                        />
+
+                    <ImageView
+                        style="@style/MineFunctionArrow"
+                        android:background="@mipmap/setting_arrow"
+                        />
+
+                </RelativeLayout>
+
+                <View
+                    style="@style/MineFunctionDivider"
+                    />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"
+                    android:background="@color/mine_function_span"
+                    />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </com.chaychan.uikit.HeaderZoomLayout>
+
+</LinearLayout>

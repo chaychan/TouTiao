@@ -1,0 +1,22 @@
+<resources>
+    <string name="dynamic">动态</string>
+    <string name="fans">粉丝</string>
+    <string name="week_visitor">7天访客</string>
+
+    <string name="collect">收藏</string>
+    <string name="history">历史</string>
+    <string name="night">夜间</string>
+
+    <string name="message_inform">消息通知</string>
+
+    <string name="mall">头条商城</string>
+    <string name="mall_bonus">邀请好友得200元现金奖励</string>
+
+    <string name="JD">京东特供</string>
+    <string name="JD_bonus">新人领188元红包</string>
+
+    <string name="provide_news">我要爆料</string>
+    <string name="feed_back">用户反馈</string>
+    <string name="settings">系统设置</string>
+
+</resources>

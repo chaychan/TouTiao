@@ -1,0 +1,8 @@
+<resources>
+    <string name="search_you_want_to_search">搜你想搜的</string>
+    <string name="to_top">置顶</string>
+    <string name="hot">热</string>
+    <string name="ad">广告</string>
+    <string name="tag_movie">影视</string>
+    <string name="net_unavailable">网络不可用</string>
+</resources>

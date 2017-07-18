@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical"
+              android:padding="10dp"
+              android:background="@drawable/selector_bg"
+    >
+
+    <include layout="@layout/include_news_title"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:layout_marginTop="10dp"
+        android:visibility="visible">
+
+        <ImageView
+            android:id="@+id/iv_img"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/ic_default"/>
+
+        <ImageView
+            android:id="@+id/iv_play"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/selector_play_video"
+            android:layout_centerInParent="true"
+            />
+
+        <LinearLayout
+            android:id="@+id/ll_bottom_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_margin="5dp"
+            android:background="@drawable/shape_rectangle_translucent"
+            android:padding="5dp">
+
+            <TextView
+                android:id="@+id/tv_bottom_right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="2dp"
+                android:gravity="center"
+                android:text="02:11"
+                android:textColor="@color/white"
+                android:minWidth="30dp"
+                android:textSize="8sp"/>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <include layout="@layout/include_news_bottom"/>
+
+</LinearLayout>

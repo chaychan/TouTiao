@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="44dp"
+    android:background="@color/white"
+    tools:showIn="@layout/activity_news_detail">
+
+    <ImageView
+        android:id="@+id/iv_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:background="@drawable/selector_back"
+        android:paddingLeft="10dp"
+        android:scaleType="center"/>
+
+    <LinearLayout
+        android:id="@+id/ll_user"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="horizontal"
+        android:gravity="center"
+        >
+
+        <ImageView
+            android:id="@+id/iv_avatar"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            />
+
+        <TextView
+            android:id="@+id/tv_author"
+            android:layout_marginLeft="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/common_text_color"
+            android:textSize="14sp"
+            />
+
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/iv_detail"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:paddingLeft="4.0dip"
+        android:paddingRight="8.0dip"
+        android:scaleType="center"
+        android:src="@drawable/selector_more_title_detail"/>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="0.5dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/divider"/>
+</RelativeLayout>

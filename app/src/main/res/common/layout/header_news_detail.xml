@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/white"
+              android:orientation="vertical"
+              android:padding="10dp">
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="新闻标题"
+        android:textColor="@color/common_text_color"
+        android:textSize="18sp"
+        />
+
+    <LinearLayout
+        android:id="@+id/ll_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        >
+
+        <ImageView
+            android:id="@+id/iv_avatar"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="7dp"
+            android:orientation="vertical"
+            >
+
+            <TextView
+                android:id="@+id/tv_author"
+                android:layout_width="match_parent"
+                android:maxLines="2"
+                android:ellipsize="end"
+                android:layout_height="wrap_content"
+                android:text="景海"
+                android:textColor="@color/common_text_color"
+                android:textSize="15sp"
+                />
+
+            <TextView
+                android:id="@+id/tv_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="2"
+                android:ellipsize="end"
+                android:layout_marginTop="2dp"
+                android:text="前天"
+                android:textColor="@color/common_text_color"
+                android:textSize="12sp"
+                />
+        </LinearLayout>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1"
+            />
+
+        <Button
+            android:layout_width="70dp"
+            android:layout_height="30dp"
+            android:background="@drawable/shape_rectangle_blue"
+            android:text="@string/focus"
+            android:textColor="@color/white"
+            android:textSize="13sp"/>
+    </LinearLayout>
+
+     <WebView
+         android:id="@+id/wv_content"
+         android:layout_marginTop="10dp"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"/>
+</LinearLayout>

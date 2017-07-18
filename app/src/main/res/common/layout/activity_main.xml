@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+    <com.chaychan.uikit.NoScrollViewPager
+        android:id="@+id/vp_content"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        />
+
+    <com.chaychan.library.BottomBarLayout
+        android:id="@+id/bottom_bar"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@color/tab_bg"
+        >
+
+        <com.chaychan.library.BottomBarItem
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:iconNormal="@mipmap/tab_home_normal"
+            app:iconSelected="@mipmap/tab_home_selected"
+            app:itemText="@string/tab_home"
+            app:itemTextSize="8sp"
+            app:textColorNormal="@color/common_grey"
+            app:textColorSelected="@color/status_color_red"
+            app:itemMarginTop="-5dp"
+            app:openTouchBg="true"
+            app:touchDrawable="@drawable/selector_bottom_tab"
+            />
+
+
+        <com.chaychan.library.BottomBarItem
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:iconNormal="@mipmap/tab_video_normal"
+            app:iconSelected="@mipmap/tab_video_selected"
+            app:itemText="@string/tab_video"
+            app:itemTextSize="8sp"
+            app:textColorNormal="@color/common_grey"
+            app:textColorSelected="@color/status_color_red"
+            app:itemMarginTop="-5dp"
+            app:openTouchBg="true"
+            app:touchDrawable="@drawable/selector_bottom_tab"
+            />
+
+        <com.chaychan.library.BottomBarItem
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:iconNormal="@mipmap/tab_micro_normal"
+            app:iconSelected="@mipmap/tab_micro_selected"
+            app:itemText="@string/tab_micro"
+            app:itemTextSize="8sp"
+            app:textColorNormal="@color/common_grey"
+            app:textColorSelected="@color/status_color_red"
+            app:itemMarginTop="-5dp"
+            app:openTouchBg="true"
+            app:touchDrawable="@drawable/selector_bottom_tab"
+            />
+
+        <com.chaychan.library.BottomBarItem
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:iconNormal="@mipmap/tab_me_normal"
+            app:iconSelected="@mipmap/tab_me_selected"
+            app:itemText="@string/tab_me"
+            app:itemTextSize="8sp"
+            app:textColorNormal="@color/common_grey"
+            app:textColorSelected="@color/status_color_red"
+            app:itemMarginTop="-5dp"
+            app:openTouchBg="true"
+            app:touchDrawable="@drawable/selector_bottom_tab"
+            />
+    </com.chaychan.library.BottomBarLayout>
+
+</LinearLayout>

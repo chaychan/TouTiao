@@ -1,0 +1,21 @@
+<resources>
+
+    <string name="app_name">仿今日头条</string>
+
+    <string name="tab_home">首页</string>
+    <string name="tab_video">视频</string>
+    <string name="tab_micro">微头条</string>
+    <string name="tab_me">我的</string>
+
+    <string name="comment">评论</string>
+    <string name="img_unit">图</string>
+
+    <string name="no_news_now">目前没有最新新闻了</string>
+
+     <string name="refresh_pull_down_text">下拉推荐</string>
+     <string name="refresh_release_text">松开推荐</string>
+     <string name="refresh_ing_text">推荐中</string>
+
+    <string name="detail_write_comment">写评论…</string>
+    <string name="focus">关注</string>
+</resources>

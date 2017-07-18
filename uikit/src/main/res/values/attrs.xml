@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--透明渐变的TabView-->
+    <declare-styleable name="AlphaView">
+        <attr name="av_tabIconNormal" format="reference"/>
+        <attr name="av_tabIconSelected" format="reference"/>
+        <attr name="av_tabText" format="string"/>
+        <attr name="av_tabTextSize" format="dimension"/>
+        <attr name="av_textColorNormal" format="color"/>
+        <attr name="av_textColorSelected" format="color"/>
+        <attr name="av_padding_top" format="dimension"/>
+    </declare-styleable>
+
+    <declare-styleable name="ColorTrackView">
+        <attr name="ctvText" format="string"/>
+        <attr name="ctvText_size" format="dimension"/>
+        <attr name="ctvText_origin_color" format="color"/>
+        <attr name="ctvText_change_color" format="color"/>
+        <attr name="ctvProgress" format="float"/>
+        <attr name="ctvDirection" format="integer"/>
+    </declare-styleable>
+
+    <declare-styleable name="PullZoomLayout">
+        <attr name="pzHeader" format="reference"/>
+        <attr name="pzMain" format="reference"/>
+    </declare-styleable>
+
+    <declare-styleable name="HtmlTextView">
+        <attr name="loadingImg" format="reference"/>
+        <attr name="errorImg" format="reference"/>
+        <attr name="defaultWidth" format="reference"/>
+        <attr name="defaultHeight" format="reference"/>
+    </declare-styleable>
+
+    <declare-styleable name="BorderTextView">
+        <attr name="strokeWidth" format="dimension"/>
+        <attr name="cornerRadius" format="dimension"/>
+        <attr name="strokeColor" format="color"/>
+        <attr name="followTextColor" format="boolean"/>
+    </declare-styleable>
+
+    <!--显示提示的View-->
+    <declare-styleable name="TipView">
+        <attr name="tipBackgroundColor" format="color"/>
+        <attr name="tipTextColor" format="color"/>
+        <attr name="tipText" format="string"/>
+        <attr name="tipTextSize" format="dimension"/>
+    </declare-styleable>
+
+    <declare-styleable name="PowerfulRecyclerView">
+        <attr name="dividerColor" format="color"/>
+        <attr name="dividerSize" format="dimension"/>
+        <attr name="dividerDrawable" format="reference"/>
+        <attr name="useStaggerLayout" format="boolean"/>
+        <attr name="numColumns" format="integer"/>
+        <attr name="rvOrientation" format="enum">
+            <enum name="HORIZONTAL" value="0"/>
+            <enum name="VERTICAL" value="1"/>
+        </attr>
+        <attr name="dividerMarginLeft" format="dimension"/>
+        <attr name="dividerMarginRight" format="dimension"/>
+    </declare-styleable>
+
+</resources>

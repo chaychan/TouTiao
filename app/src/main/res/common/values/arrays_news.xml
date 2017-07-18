@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="channel">
+        <item>推荐</item>
+        <item>视频</item>
+        <item>热点</item>
+        <item>社会</item>
+        <item>娱乐</item>
+        <item>科技</item>
+        <item>汽车</item>
+        <item>体育</item>
+        <item>财经</item>
+        <item>军事</item>
+        <item>国际</item>
+        <item>时尚</item>
+        <item>游戏</item>
+        <item>旅游</item>
+        <item>历史</item>
+        <item>探索</item>
+        <item>美食</item>
+        <item>育儿</item>
+        <item>养生</item>
+        <item>故事</item>
+        <item>美文</item>
+    </string-array>
+    <string-array name="channel_code">
+        <item></item>
+        <item>video</item>
+        <item>news_hot</item>
+        <item>news_society</item>
+        <item>news_entertainment</item>
+        <item>news_tech</item>
+        <item>news_car</item>
+        <item>news_sports</item>
+        <item>news_finance</item>
+        <item>news_military</item>
+        <item>news_world</item>
+        <item>news_fashion</item>
+        <item>news_game</item>
+        <item>news_travel</item>
+        <item>news_history</item>
+        <item>news_discovery</item>
+        <item>news_food</item>
+        <item>news_baby</item>
+        <item>news_regimen</item>
+        <item>news_story</item>
+        <item>news_essay</item>
+    </string-array>
+</resources>

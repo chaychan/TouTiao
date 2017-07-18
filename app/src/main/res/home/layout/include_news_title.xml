@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/tv_title"
+    style="@style/news_title"
+    android:layout_width="match_parent"
+    android:text="父亲节，让我们重温习近平写给父亲的一封信"
+    android:textColor="@color/common_text_color"
+    />

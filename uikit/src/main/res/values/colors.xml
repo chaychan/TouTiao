@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="white">#ffffff</color>
+    <color name="subscribe_category_bar_bg_night">#cc363636</color>
+    <color name="text_grey">#AEAEAE</color>
+    <color name="selector_grey">#DDDDDD</color>
+</resources>

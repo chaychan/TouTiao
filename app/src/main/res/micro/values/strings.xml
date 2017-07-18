@@ -1,0 +1,5 @@
+<resources>
+    <string name="text">文字</string>
+    <string name="pic">图片</string>
+    <string name="video">视频</string>
+</resources>
