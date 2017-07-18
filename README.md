@@ -11,21 +11,28 @@
 
 # 演示截图
 
+## 首页
 ![](/screenshot/home.jpg)  
 
+## 视频
 ![](/screenshot/video.jpg)  
 
+## 微头条
 ![](/screenshot/micro.jpg)  
 
+## 我的
 ![](/screenshot/mine.jpg)  
 
 
 # gif图
 
+## 新闻列表、视频列表
 ![](/screenshot/main.gif)  
 
+## 非视频新闻详情页面
 ![](/screenshot/text_detail.gif)  
 
+## 视频播放、视频详情页面
 ![](/screenshot/video_detail.gif)  
 
 
