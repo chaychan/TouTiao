@@ -8,6 +8,9 @@
 # Apk下载地址
 [[点击下载体验](http://ot6hoxs4u.bkt.clouddn.com/news.apk)]
 
+# Blog
+[http://blog.csdn.net/chay_chan/article/details/75319452](http://blog.csdn.net/chay_chan/article/details/75319452)
+
 
 # 演示截图
 
