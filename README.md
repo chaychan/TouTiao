@@ -1,6 +1,6 @@
 # 精仿今日头条
 
-精仿今日头条，数据是抓取今日头条App的数据。使用RxJava + Retrofit + MVP开发的开源项目，仅供学习用途。
+精仿今日头条，数据是抓取今日头条App的数据。使用RxJava + Retrofit + MVP开发的开源项目，仅供学习用途。觉得对你有帮助的话请帮忙star一下，让更多人知道，多谢啦！
 
 感谢大神 wey ye，项目中参考到他做过的仿今日头条项目，他的项目地址是:[https://github.com/yewei02538/TodayNews](https://github.com/yewei02538/TodayNews)
 
