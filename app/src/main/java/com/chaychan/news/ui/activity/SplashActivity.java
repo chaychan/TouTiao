@@ -23,6 +23,11 @@ public class SplashActivity extends BaseActivity {
     }
 
     @Override
+    public boolean enableSlideClose() {
+        return false;
+    }
+
+    @Override
     protected int provideContentViewId() {
         return R.layout.activity_splash;
     }

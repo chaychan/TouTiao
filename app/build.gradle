@@ -66,4 +66,5 @@ dependencies {
     compile 'org.litepal.android:core:1.5.0'
     compile project(':jcvideoplayer-lib')
     compile project(':statusbar-lib')
+    compile 'com.github.chaychan:SlideCloseLib:1.0.0'
 }

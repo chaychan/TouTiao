@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
+import com.chaychan.lib.SlidingLayout;
 import com.chaychan.news.ui.activity.MainActivity;
 import com.github.nukc.stateview.StateView;
 
@@ -34,6 +35,12 @@ public abstract class BaseActivity<T extends BasePresenter>  extends AppCompatAc
     @Override
     public final void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        if (enableSlideClose()) {
+            SlidingLayout rootView = new SlidingLayout(this);
+            rootView.bindActivity(this);
+        }
+
         this.savedInstanceState = savedInstanceState;
 
         //初始化的时候将其添加到集合中
@@ -52,6 +59,10 @@ public abstract class BaseActivity<T extends BasePresenter>  extends AppCompatAc
         initListener();
     }
 
+
+    public boolean enableSlideClose() {
+        return true;
+    }
 
     public void initView() {
     }
