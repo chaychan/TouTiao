@@ -30,6 +30,7 @@ import java.util.List;
 import butterknife.Bind;
 import butterknife.OnClick;
 import fm.jiecao.jcvideoplayer_lib.JCMediaManager;
+import fm.jiecao.jcvideoplayer_lib.JCVideoPlayerManager;
 
 /**
  * @author ChayChan
@@ -212,7 +213,7 @@ public abstract class NewsDetailBaseActivity extends BaseActivity<NewsDetailPres
             event.setCommentCount(mCommentResponse.total_number);
         }
 
-        if (isVideoDetail && JCMediaManager.instance().mediaPlayer != null){
+        if (isVideoDetail && JCMediaManager.instance().mediaPlayer != null && JCVideoPlayerManager.getCurrentJcvd() != null){
             //如果是视频详情
             int progress = JCMediaManager.instance().mediaPlayer.getCurrentPosition();
             event.setProgress(progress);
