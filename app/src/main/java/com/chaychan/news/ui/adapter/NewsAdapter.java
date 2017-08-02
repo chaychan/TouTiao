@@ -129,6 +129,11 @@ public class NewsAdapter extends BaseQuickAdapter<News, BaseViewHolder> {
 
     @Override
     protected void convert(BaseViewHolder helper, News news) {
+        if (TextUtils.isEmpty(news.title)){
+            //如果没有标题，则直接跳过
+            return;
+        }
+
         //设置标题、底部作者、评论数、发表时间
         if (!isVideoList) {
             //如果不是视频列表

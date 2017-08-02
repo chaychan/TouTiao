@@ -71,7 +71,9 @@ public class NewsDetailHeaderView extends FrameLayout {
             //如果没有用户信息
             mLlInfo.setVisibility(GONE);
         } else {
-            GlideUtils.loadRound(mContext, detail.media_user.avatar_url, mIvAvatar);
+            if (!TextUtils.isEmpty(detail.media_user.avatar_url)){
+                GlideUtils.loadRound(mContext, detail.media_user.avatar_url, mIvAvatar);
+            }
             mTvAuthor.setText(detail.media_user.screen_name);
             mTvTime.setText(com.chaychan.news.utils.DateUtils.getShortTime(detail.publish_time * 1000L));
         }

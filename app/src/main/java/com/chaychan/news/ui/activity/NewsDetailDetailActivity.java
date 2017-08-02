@@ -78,8 +78,10 @@ public class NewsDetailDetailActivity extends NewsDetailBaseActivity {
 
         mLlUser.setVisibility(View.GONE);
 
-        GlideUtils.loadRound(this,newsDetail.media_user.avatar_url, mIvAvatar);
-        mTvAuthor.setText(newsDetail.media_user.screen_name);
+        if (newsDetail.media_user != null){
+            GlideUtils.loadRound(this,newsDetail.media_user.avatar_url, mIvAvatar);
+            mTvAuthor.setText(newsDetail.media_user.screen_name);
+        }
     }
 
     @Override
