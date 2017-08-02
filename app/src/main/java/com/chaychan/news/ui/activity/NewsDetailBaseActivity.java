@@ -119,6 +119,9 @@ public abstract class NewsDetailBaseActivity extends BaseActivity<NewsDetailPres
         mCommentAdapter.setEnableLoadMore(true);
         mCommentAdapter.setOnLoadMoreListener(this, mRvComment);
 
+        mCommentAdapter.setEmptyView(R.layout.pager_no_comment);
+        mCommentAdapter.setHeaderAndEmpty(true);
+
         mStateView.setOnRetryClickListener(new StateView.OnRetryClickListener() {
             @Override
             public void onRetryClick() {
@@ -134,13 +137,7 @@ public abstract class NewsDetailBaseActivity extends BaseActivity<NewsDetailPres
         mCommentResponse = response;
 
         if (ListUtils.isEmpty(mCommentList)){
-            //第一次访问
-            if (ListUtils.isEmpty(response.data)){
-                //没有评论，展示空布局
-                mStateView.showEmpty();
-                return;
-            }
-            //展示内容布局
+            //第一次访问,展示内容布局
             mStateView.showContent();
         }
 

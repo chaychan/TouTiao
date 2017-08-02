@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">uikit</string>
     <string name="net_error_msg">网络不给力</string>
+    <string name="no_comment">暂无评论，点击抢沙发</string>
 </resources>
