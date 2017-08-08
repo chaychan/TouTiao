@@ -6,7 +6,7 @@
 
 
 # Apk下载地址
-[[点击下载体验](http://ot6hoxs4u.bkt.clouddn.com/news_0802.apk)]
+[[点击下载体验](https://github.com/chaychan/TouTiao/blob/master/apk/news_0802.apk)]
 
 # Blog
 [http://blog.csdn.net/chay_chan/article/details/75319452](http://blog.csdn.net/chay_chan/article/details/75319452)
