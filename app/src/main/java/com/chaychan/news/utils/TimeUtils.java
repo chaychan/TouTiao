@@ -47,6 +47,12 @@ public class TimeUtils {
         return str;
     }
 
+    /**
+     * 判断是否是同一年
+     * @param targetTime
+     * @param compareTime
+     * @return
+     */
     public static boolean isSameYear(Date targetTime, Date compareTime) {
         Calendar tarCalendar = Calendar.getInstance();
         tarCalendar.setTime(targetTime);
@@ -59,6 +65,12 @@ public class TimeUtils {
         return tarYear == comYear;
     }
 
+    /**
+     * 判断是否处于今天还是昨天，0表示今天，-1表示昨天，小于-1则是昨天以前
+     * @param targetTime
+     * @param compareTime
+     * @return
+     */
     public static int calculateDayStatus(Date targetTime, Date compareTime) {
         Calendar tarCalendar = Calendar.getInstance();
         tarCalendar.setTime(targetTime);
@@ -71,6 +83,11 @@ public class TimeUtils {
         return tarDayOfYear - comDayOfYear;
     }
 
+    /**
+     * 将秒数转换成00:00的字符串，如 118秒 -> 01:58
+     * @param time
+     * @return
+     */
     public static String secToTime(int time) {
         String timeStr = null;
         int hour = 0;
