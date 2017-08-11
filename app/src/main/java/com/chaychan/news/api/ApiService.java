@@ -22,7 +22,7 @@ import rx.Observable;
 
 public interface ApiService {
 
-    String GET_ARTICLE_LIST = "api/news/feed/v54/?refer=1&count=20&loc_mode=4&device_id=34960436458";
+    String GET_ARTICLE_LIST = "api/news/feed/v62/?refer=1&count=20&loc_mode=4&device_id=34960436458&iid=13136511752";
     String GET_COMMENT_LIST = "article/v2/tab_comments/";
     //http://is.snssdk.com
     //http://is.snssdk.com/api/news/feed/v54/?refer=1&count=20&min_behot_time=1498722625&last_refresh_sub_entrance_interval=1498724693&loc_mode=4&tt_from=pull（tab_tip） 新闻列表

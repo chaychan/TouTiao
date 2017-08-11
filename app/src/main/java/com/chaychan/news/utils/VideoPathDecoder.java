@@ -74,6 +74,7 @@ public abstract class VideoPathDecoder {
                                 List<VideoPathResponse.DataBean.VideoBean.DownloadBean> downloadList = response.data.video.download;
                                 if (!ListUtils.isEmpty(downloadList)){
                                     url = downloadList.get(downloadList.size() -1).url;//获取下载地址中最后一个地址，即超清
+                                    KLog.e("videoUrl: ",url);
                                 }
                                 onSuccess(url);
                                 break;
