@@ -6,6 +6,7 @@ import android.widget.ImageView;
 
 import com.chaychan.news.R;
 import com.chaychan.news.model.entity.NewsDetail;
+import com.chaychan.news.ui.view.NewsDetailHeaderView;
 import com.chaychan.news.utils.UIUtils;
 import com.chaychan.news.utils.VideoPathDecoder;
 import com.socks.library.KLog;
@@ -68,7 +69,13 @@ public class VideoDetailActivity extends NewsDetailBaseActivity {
     @Override
     public void onGetNewsDetailSuccess(NewsDetail newsDetail) {
         newsDetail.content = "";
-        mHeaderView.setDetail(newsDetail);
+        mHeaderView.setDetail(newsDetail, new NewsDetailHeaderView.LoadWebListener() {
+            @Override
+            public void onLoadFinished() {
+                //加载完成后，显示内容布局
+                mStateView.showContent();
+            }
+        });
 
         VideoPathDecoder decoder = new VideoPathDecoder() {
             @Override

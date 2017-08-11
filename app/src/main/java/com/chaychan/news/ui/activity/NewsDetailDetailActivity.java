@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.chaychan.news.R;
 import com.chaychan.news.model.entity.NewsDetail;
+import com.chaychan.news.ui.view.NewsDetailHeaderView;
 import com.chaychan.news.utils.GlideUtils;
 import com.chaychan.news.utils.UIUtils;
 import com.socks.library.KLog;
@@ -74,7 +75,13 @@ public class NewsDetailDetailActivity extends NewsDetailBaseActivity {
 
     @Override
     public void onGetNewsDetailSuccess(NewsDetail newsDetail) {
-        mHeaderView.setDetail(newsDetail);
+        mHeaderView.setDetail(newsDetail, new NewsDetailHeaderView.LoadWebListener() {
+            @Override
+            public void onLoadFinished() {
+                //加载完成后，显示内容布局
+                mStateView.showContent();
+            }
+        });
 
         mLlUser.setVisibility(View.GONE);
 

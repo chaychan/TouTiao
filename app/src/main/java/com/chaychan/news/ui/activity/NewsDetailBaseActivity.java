@@ -57,7 +57,7 @@ public abstract class NewsDetailBaseActivity extends BaseActivity<NewsDetailPres
     TextView mTvCommentCount;
 
     private List<CommentData> mCommentList = new ArrayList<>();
-    private StateView mStateView;
+    protected StateView mStateView;
     private CommentAdapter mCommentAdapter;
     protected NewsDetailHeaderView mHeaderView;
     private String mDetalUrl;
@@ -135,11 +135,6 @@ public abstract class NewsDetailBaseActivity extends BaseActivity<NewsDetailPres
     public void onGetCommentSuccess(CommentResponse response) {
 
         mCommentResponse = response;
-
-        if (ListUtils.isEmpty(mCommentList)){
-            //第一次访问,展示内容布局
-            mStateView.showContent();
-        }
 
         if (ListUtils.isEmpty(response.data)){
             //没有评论了

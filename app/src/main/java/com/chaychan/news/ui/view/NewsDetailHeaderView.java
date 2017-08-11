@@ -4,6 +4,7 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -64,7 +65,9 @@ public class NewsDetailHeaderView extends FrameLayout {
         ButterKnife.bind(this, this);
     }
 
-    public void setDetail(NewsDetail detail) {
+    public void setDetail(NewsDetail detail,LoadWebListener listener) {
+        mWebListener = listener;
+
         mTvTitle.setText(detail.title);
 
         if (detail.media_user == null) {
@@ -96,6 +99,20 @@ public class NewsDetailHeaderView extends FrameLayout {
 
 
         mWvContent.loadDataWithBaseURL(null, html, "text/html", "UTF-8", null);
+        mWvContent.setWebViewClient(new WebViewClient(){
+            @Override
+            public void onPageFinished(WebView view, String url) {
+                if (mWebListener != null){
+                    mWebListener.onLoadFinished();
+                }
+            }
+        });
     }
 
+    private LoadWebListener mWebListener;
+
+    /**页面加载的回调*/
+    public interface LoadWebListener{
+       void onLoadFinished();
+    }
 }
