@@ -38,4 +38,6 @@ dependencies {
     compile 'com.github.chaychan:BottomBarLayout:1.0.1'
     compile 'com.github.limedroid:XRichText:v1.0.0'
     compile 'de.hdodenhof:circleimageview:2.0.0'
+    compile 'com.github.chrisbanes:PhotoView:2.0.0'
+    compile 'com.sunfusheng:glideimageview:1.0.0'
 }

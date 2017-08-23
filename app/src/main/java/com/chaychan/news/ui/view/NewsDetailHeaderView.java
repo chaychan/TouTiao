@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.chaychan.news.R;
 import com.chaychan.news.model.entity.NewsDetail;
+import com.chaychan.news.relation.ShowPicRelation;
 import com.chaychan.news.utils.GlideUtils;
 
 import butterknife.Bind;
@@ -25,6 +26,7 @@ import butterknife.ButterKnife;
 
 public class NewsDetailHeaderView extends FrameLayout {
 
+    private static final String NICK = "chaychan";
 
     @Bind(R.id.tvTitle)
     TextView mTvTitle;
@@ -84,6 +86,8 @@ public class NewsDetailHeaderView extends FrameLayout {
         if (TextUtils.isEmpty(detail.content))
             mWvContent.setVisibility(GONE);
 
+        mWvContent.getSettings().setJavaScriptEnabled(true);//设置JS可用
+        mWvContent.addJavascriptInterface(new ShowPicRelation(mContext),NICK);//绑定JS和Java的联系类，以及使用到的昵称
 
         String htmlPart1 = "<!DOCTYPE HTML html>\n" +
                 "<head><meta charset=\"utf-8\"/>\n" +
@@ -91,7 +95,7 @@ public class NewsDetailHeaderView extends FrameLayout {
                 "</head>\n" +
                 "<body>\n" +
                 "<style> \n" +
-                "img{max-width:100%!important;height:auto!important}\n" +
+                "img{width:100%!important;height:auto!important}\n" +
                 " </style>";
         String htmlPart2 = "</body></html>";
 
@@ -102,11 +106,28 @@ public class NewsDetailHeaderView extends FrameLayout {
         mWvContent.setWebViewClient(new WebViewClient(){
             @Override
             public void onPageFinished(WebView view, String url) {
+                addJs(view);//添加多JS代码，为图片绑定点击函数
                 if (mWebListener != null){
                     mWebListener.onLoadFinished();
                 }
             }
         });
+    }
+
+    /**添加JS代码，获取所有图片的链接以及为图片设置点击事件*/
+    private void addJs(WebView wv) {
+        wv.loadUrl("javascript:(function  pic(){"+
+                "var imgList = \"\";"+
+                "var imgs = document.getElementsByTagName(\"img\");"+
+                "for(var i=0;i<imgs.length;i++){"+
+                "var img = imgs[i];"+
+                "imgList = imgList + img.src +\";\";"+
+                "img.onclick = function(){"+
+                "window.chaychan.openImg(this.src);"+
+                "}"+
+                "}"+
+                "window.chaychan.getImgArray(imgList);"+
+                "})()");
     }
 
     private LoadWebListener mWebListener;

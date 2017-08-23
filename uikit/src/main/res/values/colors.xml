@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
+    <color name="transparent10_white">#1Affffff</color>
+    <color name="transparent90_white">#E5ffffff</color>
+    <color name="transparent">#00000000</color>
+    <color name="transparent10">#1A000000</color>
     <color name="subscribe_category_bar_bg_night">#cc363636</color>
     <color name="text_grey">#AEAEAE</color>
     <color name="selector_grey">#DDDDDD</color>
+    <color name="placeholder_color">#1A000000</color>
 </resources>

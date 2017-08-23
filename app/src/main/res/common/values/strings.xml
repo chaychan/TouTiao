@@ -18,4 +18,7 @@
 
     <string name="detail_write_comment">写评论…</string>
     <string name="focus">关注</string>
+
+    <string name="net_error">网络异常，请检查后重试</string>
+    <string name="write_storage_permission_deny">保存失败，SD卡写入权限被拒绝</string>
 </resources>
