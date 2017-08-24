@@ -35,6 +35,10 @@
 ## 非视频新闻详情页面
 ![](/screenshot/text_detail.gif)  
 
+
+## 查看和保存图片
+![](/screenshot/watch_save_img.gif)  
+
 ## 视频播放、视频详情页面
 ![](/screenshot/video_detail.gif)  
 
