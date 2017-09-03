@@ -43,7 +43,7 @@ public class GlideUtils {
         RequestOptions options = new RequestOptions();
         options.placeholder(R.mipmap.ic_circle_default)
                 .centerCrop()
-                .transform(new GlideRoundTransform());
+                .circleCrop();
 
         Glide.with(context)//
                 .load(url)//
