@@ -67,8 +67,8 @@ public interface ApiService {
 
     @Headers({
             "Content-Type:application/x-www-form-urlencoded; charset=UTF-8",
-            "Origin:http://toutiao.iiilab.com",
-            "User-Agent:Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36"
+            "Cookie:PHPSESSIID=334267171504; _ga=GA1.2.646236375.1499951727; _gid=GA1.2.951962968.1507171739; Hm_lvt_e0a6a4397bcb500e807c5228d70253c8=1507174305;Hm_lpvt_e0a6a4397bcb500e807c5228d70253c8=1507174305; _gat=1",
+            "Origin:http://toutiao.iiilab.com"
 
     })
     @POST("http://service.iiilab.com/video/toutiao")
