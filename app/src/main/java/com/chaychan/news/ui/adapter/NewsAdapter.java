@@ -257,9 +257,14 @@ public class NewsAdapter extends BaseQuickAdapter<News, BaseViewHolder> {
                     @Override
                     public void onSuccess(String url) {
                         KLog.i("Video url:" + url);
-                        videoPlayer.setUp(url, JCVideoPlayer.SCREEN_LAYOUT_LIST,news.title);
-                        videoPlayer.seekToInAdvance = news.video_detail_info.progress;
-                        videoPlayer.startVideo();
+                        UIUtils.postTaskSafely(new Runnable() {
+                            @Override
+                            public void run() {
+                                videoPlayer.setUp(url, JCVideoPlayer.SCREEN_LAYOUT_LIST,news.title);
+                                videoPlayer.seekToInAdvance = news.video_detail_info.progress;
+                                videoPlayer.startVideo();
+                            }
+                        });
                     }
 
                     @Override

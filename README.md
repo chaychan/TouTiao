@@ -15,32 +15,31 @@
 # 演示截图
 
 ## 首页
-![](/screenshot/home.jpg)  
+![](https://raw.githubusercontent.com/chaychan/TouTiaoPics/master/screenshot/home.jpg)  
 
 ## 视频
-![](/screenshot/video.jpg)  
+![](https://raw.githubusercontent.com/chaychan/TouTiaoPics/master/screenshot/video.jpg)  
 
 ## 微头条
-![](/screenshot/micro.jpg)  
+![](https://raw.githubusercontent.com/chaychan/TouTiaoPics/master/screenshot/micro.jpg)  
 
 ## 我的
-![](/screenshot/mine.jpg)  
+![](https://raw.githubusercontent.com/chaychan/TouTiaoPics/master/screenshot/mine.jpg)  
 
 
 # gif图
 
 ## 新闻列表、视频列表
-![](/screenshot/main.gif)  
+![](https://raw.githubusercontent.com/chaychan/TouTiaoPics/master/screenshot/main.gif)  
 
 ## 非视频新闻详情页面
-![](/screenshot/text_detail.gif)  
+![](https://raw.githubusercontent.com/chaychan/TouTiaoPics/master/screenshot/text_detail.gif)  
 
-
-## 查看和保存图片
-![](/screenshot/watch_save_img.gif)  
+##查看和保存图片
+![](https://raw.githubusercontent.com/chaychan/TouTiaoPics/master/screenshot/watch_save_img.gif)  
 
 ## 视频播放、视频详情页面
-![](/screenshot/video_detail.gif)  
+![](https://raw.githubusercontent.com/chaychan/TouTiaoPics/master/screenshot/video_detail.gif)  
 
 
 # 使用到的第三方库
@@ -49,7 +48,6 @@
 * [RxJava](https://github.com/ReactiveX/RxJava)
 * [ButterKnife](https://github.com/JakeWharton/butterknife)
 * [Gson](https://github.com/google/gson)
-* 
 * [BottomBarLayout(轻量级底部导航栏)](https://github.com/chaychan/BottomBarLayout)
 * [BaseRecyclerViewAdapterHelper(ReclerView万能适配器)](https://github.com/CymChad/BaseRecyclerViewAdapterHelper)
 * [StateView(用于几种状态布局的切换)](https://github.com/nukc/StateView)
@@ -57,7 +55,6 @@
 * [BGARefreshLayout-Android(下拉刷新)](https://github.com/bingoogolapple/BGARefreshLayout-Android)
 * [Eyes(修改状态栏颜色)](https://github.com/imflyn/Eyes)
 * [ColorTrackTabLayout](https://github.com/yewei02538/ColorTrackTabLayout)
-* 
 * [EventBus](https://github.com/greenrobot/EventBus)
 * [KLog(log管理)](https://github.com/ZhaoKaiQiang/KLog)
 

@@ -36,17 +36,33 @@ public abstract class VideoPathDecoder {
             public void onGetParams(String r, String s) {
                 sendRequest(srcUrl,r,s);
             }
+
+            @Override
+            public void onGetPath(String path) {
+                onSuccess(path);
+            }
         });
 
         webView.addJavascriptInterface(relation, NICK);//绑定JS和Java的联系类，以及使用到的昵称
 
-        webView.loadUrl("file:///android_asset/parse.html");
+//        webView.loadUrl("file:///android_asset/parse.html");
+        webView.loadUrl(srcUrl);
         webView.setWebViewClient(new WebViewClient(){
             @Override
             public void onPageFinished(WebView view, String url) {
-                webView.loadUrl("javascript:getParseParam('" + srcUrl + "')");
+//                webView.loadUrl("javascript:getParseParam('" + srcUrl + "')");
+                addJs(webView);
             }
         });
+    }
+
+    private void addJs(WebView webView){
+        webView.loadUrl("javascript:(function  getVideoPath(){" +
+                "var videos = document.getElementsByTagName(\"video\");" +
+                "var path = videos[0].src;" +
+                "window.chaychan.onGetPath(path);" +
+                "})()");
+
     }
 
     private void sendRequest(String srcUrl,String r,String s) {
@@ -104,10 +120,16 @@ public abstract class VideoPathDecoder {
         public void onReceiveParams(String r,String s) {
             mListener.onGetParams(r,s);
         }
+
+        @JavascriptInterface
+        public void onGetPath(String path){
+            mListener.onGetPath(path);
+        }
     }
 
     public interface IGetParamsListener {
        void onGetParams(String r,String s);
+        void onGetPath(String path);
     }
 
 }

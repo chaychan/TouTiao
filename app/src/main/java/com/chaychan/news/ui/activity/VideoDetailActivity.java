@@ -81,9 +81,14 @@ public class VideoDetailActivity extends NewsDetailBaseActivity {
             @Override
             public void onSuccess(String url) {
                 KLog.e("onGetNewsDetailSuccess", url);
-                mVideoPlayer.setUp(url, JCVideoPlayer.SCREEN_LAYOUT_LIST, newsDetail.title);
-                mVideoPlayer.seekToInAdvance = mProgress;//设置进度
-                mVideoPlayer.startVideo();
+                UIUtils.postTaskSafely(new Runnable() {
+                    @Override
+                    public void run() {
+                        mVideoPlayer.setUp(url, JCVideoPlayer.SCREEN_LAYOUT_LIST, newsDetail.title);
+                        mVideoPlayer.seekToInAdvance = mProgress;//设置进度
+                        mVideoPlayer.startVideo();
+                    }
+                });
             }
 
             @Override
