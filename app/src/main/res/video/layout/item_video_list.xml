@@ -38,7 +38,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:textColor="@color/light_white"
+                android:textColor="@color/color_C1C1C1"
                 android:textSize="12sp"
                 />
 
@@ -99,7 +99,7 @@
                 android:ellipsize="end"
                 android:singleLine="true"
                 android:text="视频作者"
-                android:textColor="@color/common_text_color"
+                android:textColor="@color/color_222222"
                 android:textSize="13sp"
                 />
 
@@ -120,7 +120,7 @@
                 android:drawablePadding="2dp"
                 android:gravity="center"
                 android:text="@string/focus"
-                android:textColor="@color/common_text_color"
+                android:textColor="@color/color_222222"
                 android:textSize="12sp"
                 />
 
@@ -134,7 +134,7 @@
                 android:drawablePadding="2dp"
                 android:gravity="center"
                 android:text="50"
-                android:textColor="@color/common_text_color"
+                android:textColor="@color/color_222222"
                 android:textSize="12sp"
                 />
 
@@ -156,7 +156,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="5dp"
-        android:background="@color/mine_function_span"
+        android:background="@color/color_F3F5F4"
         />
 
 </LinearLayout>

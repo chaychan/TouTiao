@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:drawable="@color/selector_grey" android:state_pressed="true"/>
-    <item android:drawable="@color/tab_bg"/>
+    <item android:drawable="@color/color_F3F5F4"/>
 </selector>

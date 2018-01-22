@@ -15,7 +15,7 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:text="@string/tab_micro"
-            android:textColor="@color/common_grey"
+            android:textColor="@color/color_515051"
             android:textSize="16sp"
             />
 
@@ -32,7 +32,7 @@
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
             android:layout_alignParentBottom="true"
-            android:background="@color/divider"
+            android:background="@color/color_d8d8d8"
             />
 
     </RelativeLayout>
@@ -83,7 +83,7 @@
                 android:layout_width="1dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:background="@color/divider"
+                android:background="@color/color_d8d8d8"
                 />
 
 
@@ -130,7 +130,7 @@
                 android:layout_width="1dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:background="@color/divider"
+                android:background="@color/color_d8d8d8"
                 />
 
 
@@ -172,7 +172,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="0.5dp"
-        android:background="@color/divider"
+        android:background="@color/color_d8d8d8"
         />
 
 </LinearLayout>

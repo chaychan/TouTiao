@@ -29,7 +29,7 @@
             android:ellipsize="end"
             android:includeFontPadding="false"
             android:singleLine="true"
-            android:textColor="@color/detail_comment_name_color"
+            android:textColor="@color/color_406599"
             android:text="123"
             android:layout_marginTop="3dp"
             android:textSize="15.0sp"/>
@@ -47,7 +47,7 @@
             android:drawableLeft="@mipmap/comment_like_icon"
             android:text="123"
             android:drawablePadding="2dp"
-            android:textColor="@color/detail_comment_like_color"/>
+            android:textColor="@color/color_cacaca"/>
 
     </LinearLayout>
 
@@ -62,7 +62,7 @@
         android:includeFontPadding="false"
         android:lineSpacingExtra="6.0dip"
         android:maxLines="8"
-        android:textColor="@color/detail_comment_content_color"
+        android:textColor="@color/color_505050"
         android:textSize="16.0sp"/>
 
 
@@ -73,7 +73,7 @@
         android:textSize="12sp"
         android:text="7小时前"
         android:layout_marginTop="10dp"
-        android:textColor="@color/detail_comment_content_color"
+        android:textColor="@color/color_505050"
         android:layout_marginLeft="45dp"
         />
 </LinearLayout>

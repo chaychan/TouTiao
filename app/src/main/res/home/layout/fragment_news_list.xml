@@ -12,9 +12,9 @@
         android:layout_width="match_parent"
         android:layout_height="30dp"
         android:visibility="gone"
-        app:tipBackgroundColor="@color/tip_view_bg"
+        app:tipBackgroundColor="@color/color_D5E8F6"
         app:tipText="@string/net_unavailable"
-        app:tipTextColor="@color/tip_view_text_color"
+        app:tipTextColor="@color/color_4592C6"
         app:tipTextSize="14sp"
         ></com.chaychan.uikit.TipView>
 
@@ -38,7 +38,7 @@
                 android:layout_height="match_parent"
                 app:dividerMarginLeft="10dp"
                 app:dividerMarginRight="10dp"
-                app:dividerColor="@color/divider"
+                app:dividerColor="@color/color_d8d8d8"
                 app:dividerSize="0.5dp"
                 />
 

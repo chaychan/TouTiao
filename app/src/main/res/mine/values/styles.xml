@@ -24,7 +24,7 @@
     <style name="MineFunctionDivider">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">1dp</item>
-        <item name="android:background">@color/mine_function_divider</item>
+        <item name="android:background">@color/color_E6E8E7</item>
     </style>
 
     <style name="MineFunctionTvRight">

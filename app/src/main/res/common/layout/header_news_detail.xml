@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="新闻标题"
-        android:textColor="@color/common_text_color"
+        android:textColor="@color/color_222222"
         android:textSize="18sp"
         />
 
@@ -45,7 +45,7 @@
                 android:ellipsize="end"
                 android:layout_height="wrap_content"
                 android:text="景海"
-                android:textColor="@color/common_text_color"
+                android:textColor="@color/color_222222"
                 android:textSize="15sp"
                 />
 
@@ -57,7 +57,7 @@
                 android:ellipsize="end"
                 android:layout_marginTop="2dp"
                 android:text="前天"
-                android:textColor="@color/common_text_color"
+                android:textColor="@color/color_222222"
                 android:textSize="12sp"
                 />
         </LinearLayout>

@@ -14,9 +14,9 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/white"
-            app:tabIndicatorColor="@color/tab_selected_color"
+            app:tabIndicatorColor="@color/color_f85959"
             app:tabMode="scrollable"
-            app:tabSelectedTextColor="@color/tab_selected_color"
+            app:tabSelectedTextColor="@color/color_f85959"
             app:tabTextAppearance="@style/TextAppearanceHome"
             app:tabTextColor="#ff222222"
             />
@@ -38,7 +38,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@color/tab_layout_divider"
+        android:background="@color/color_e8e8e8"
         />
 
     <android.support.v4.view.ViewPager

@@ -200,17 +200,17 @@ public class NewsAdapter extends BaseQuickAdapter<News, BaseViewHolder> {
         String tag = "";
         if (isTop) {
             tag = UIUtils.getString(R.string.to_top);
-            helper.setTextColor(R.id.tv_tag, UIUtils.getColor(R.color.news_tag_border_red));
+            helper.setTextColor(R.id.tv_tag, UIUtils.getColor(R.color.color_F96B6B));
         } else if (isHot) {
             tag = UIUtils.getString(R.string.hot);
-            helper.setTextColor(R.id.tv_tag, UIUtils.getColor(R.color.news_tag_border_red));
+            helper.setTextColor(R.id.tv_tag, UIUtils.getColor(R.color.color_F96B6B));
         } else if (isAD) {
             tag = UIUtils.getString(R.string.ad);
-            helper.setTextColor(R.id.tv_tag, UIUtils.getColor(R.color.news_tag_border_blue));
+            helper.setTextColor(R.id.tv_tag, UIUtils.getColor(R.color.color_3091D8));
         } else if (isMovie) {
             //如果是影视
             tag = UIUtils.getString(R.string.tag_movie);
-            helper.setTextColor(R.id.tv_tag, UIUtils.getColor(R.color.news_tag_border_red));
+            helper.setTextColor(R.id.tv_tag, UIUtils.getColor(R.color.color_F96B6B));
         }
         helper.setText(R.id.tv_tag, tag);
     }
@@ -238,7 +238,7 @@ public class NewsAdapter extends BaseQuickAdapter<News, BaseViewHolder> {
 
 
         JCVideoPlayerStandard videoPlayer = helper.getView(R.id.video_player);
-        GlideUtils.load(mContext, news.video_detail_info.detail_video_large_image.url, videoPlayer.thumbImageView, R.color.divider);//设置缩略图
+        GlideUtils.load(mContext, news.video_detail_info.detail_video_large_image.url, videoPlayer.thumbImageView, R.color.color_d8d8d8);//设置缩略图
 
         videoPlayer.setAllControlsVisible(GONE, GONE, VISIBLE, GONE, VISIBLE, VISIBLE, GONE);
         videoPlayer.tinyBackImageView.setVisibility(GONE);

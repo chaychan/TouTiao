@@ -106,7 +106,7 @@
                 <View
                     android:layout_width="0.5dip"
                     android:layout_height="38.0dip"
-                    android:background="@color/mine_divider"/>
+                    android:background="@color/color_1affffff"/>
 
                 <LinearLayout
                     android:layout_width="0.0dip"
@@ -136,7 +136,7 @@
                 <View
                     android:layout_width="0.5dip"
                     android:layout_height="38.0dip"
-                    android:background="@color/mine_divider"/>
+                    android:background="@color/color_1affffff"/>
 
                 <LinearLayout
                     android:layout_width="0.0dip"
@@ -188,7 +188,7 @@
                         android:drawableTop="@mipmap/my_collect"
                         android:gravity="center"
                         android:text="@string/collect"
-                        android:textColor="@color/common_text_color"
+                        android:textColor="@color/color_222222"
                         android:textSize="12sp"
                         />
 
@@ -201,7 +201,7 @@
                         android:drawableTop="@mipmap/my_history"
                         android:gravity="center"
                         android:text="@string/history"
-                        android:textColor="@color/common_text_color"
+                        android:textColor="@color/color_222222"
                         android:textSize="12sp"
                         />
 
@@ -214,7 +214,7 @@
                         android:drawableTop="@mipmap/night_mode"
                         android:gravity="center"
                         android:text="@string/night"
-                        android:textColor="@color/common_text_color"
+                        android:textColor="@color/color_222222"
                         android:textSize="12sp"
                         />
 
@@ -227,7 +227,7 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="10dp"
-                    android:background="@color/mine_function_span"
+                    android:background="@color/color_F3F5F4"
                     />
 
                 <View
@@ -242,7 +242,7 @@
                     <TextView
                         style="@style/MineFunctionTvLeft"
                         android:text="@string/message_inform"
-                        android:textColor="@color/common_text_color"
+                        android:textColor="@color/color_222222"
                         />
 
                     <ImageView
@@ -259,7 +259,7 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="10dp"
-                    android:background="@color/mine_function_span"
+                    android:background="@color/color_F3F5F4"
                     />
 
                 <View
@@ -274,7 +274,7 @@
                     <TextView
                         style="@style/MineFunctionTvLeft"
                         android:text="@string/mall"
-                        android:textColor="@color/common_text_color"
+                        android:textColor="@color/color_222222"
                         />
 
                     <ImageView
@@ -303,7 +303,7 @@
                     <TextView
                         style="@style/MineFunctionTvLeft"
                         android:text="@string/JD"
-                        android:textColor="@color/common_text_color"
+                        android:textColor="@color/color_222222"
                         />
 
                     <ImageView
@@ -326,7 +326,7 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="10dp"
-                    android:background="@color/mine_function_span"
+                    android:background="@color/color_F3F5F4"
                     />
 
                 <View
@@ -341,7 +341,7 @@
                     <TextView
                         style="@style/MineFunctionTvLeft"
                         android:text="@string/provide_news"
-                        android:textColor="@color/common_text_color"
+                        android:textColor="@color/color_222222"
                         />
 
                     <ImageView
@@ -364,7 +364,7 @@
                     <TextView
                         style="@style/MineFunctionTvLeft"
                         android:text="@string/feed_back"
-                        android:textColor="@color/common_text_color"
+                        android:textColor="@color/color_222222"
                         />
 
                     <ImageView
@@ -387,7 +387,7 @@
                     <TextView
                         style="@style/MineFunctionTvLeft"
                         android:text="@string/settings"
-                        android:textColor="@color/common_text_color"
+                        android:textColor="@color/color_222222"
                         />
 
                     <ImageView
@@ -404,7 +404,7 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="10dp"
-                    android:background="@color/mine_function_span"
+                    android:background="@color/color_F3F5F4"
                     />
 
             </LinearLayout>

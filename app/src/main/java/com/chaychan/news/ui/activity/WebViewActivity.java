@@ -53,7 +53,7 @@ public class WebViewActivity extends BaseActivity {
 
     @Override
     public void initView() {
-        Eyes.setStatusBarColor(this, UIUtils.getColor(R.color.status_color_grey));
+        Eyes.setStatusBarColor(this, UIUtils.getColor(R.color.color_BDBDBD));
     }
 
     @Override
