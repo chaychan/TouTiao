@@ -65,7 +65,6 @@ public class HomeFragment extends BaseFragment {
         initChannelFragments();
     }
 
-
     /**
      * 初始化已选频道和未选频道的数据
      */

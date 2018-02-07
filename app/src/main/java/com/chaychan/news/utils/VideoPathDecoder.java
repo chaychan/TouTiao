@@ -51,7 +51,13 @@ public abstract class VideoPathDecoder {
             @Override
             public void onPageFinished(WebView view, String url) {
 //                webView.loadUrl("javascript:getParseParam('" + srcUrl + "')");
-                addJs(webView);
+                UIUtils.postTaskDelay(new Runnable() {
+                    @Override
+                    public void run() {
+                        addJs(webView);
+                    }
+                },5000);
+
             }
         });
     }
