@@ -62,7 +62,6 @@ dependencies {
     compile 'com.jakewharton:butterknife:7.0.1'
     compile project(':uikit')
     compile 'com.github.zhaokaiqiang.klog:library:1.6.0'
-    compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.18'
     compile 'com.github.bumptech.glide:glide:3.7.0'
     compile 'org.greenrobot:eventbus:3.0.0'
     compile 'com.nineoldandroids:library:2.4.0'
@@ -70,4 +69,5 @@ dependencies {
     compile project(':jcvideoplayer-lib')
     compile project(':statusbar-lib')
     compile 'com.github.chaychan:SlideCloseLib:1.0.0'
+    compile 'com.github.chaychan:MultipleItemRvAdapter:1.0.2'
 }

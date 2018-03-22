@@ -17,14 +17,15 @@ import com.chaychan.news.R;
 import com.chaychan.news.constants.Constant;
 import com.chaychan.news.model.entity.News;
 import com.chaychan.news.model.entity.NewsRecord;
+import com.chaychan.news.model.event.DetailCloseEvent;
 import com.chaychan.news.model.event.TabRefreshCompletedEvent;
 import com.chaychan.news.model.event.TabRefreshEvent;
-import com.chaychan.news.model.event.DetailCloseEvent;
 import com.chaychan.news.ui.activity.NewsDetailBaseActivity;
 import com.chaychan.news.ui.activity.NewsDetailDetailActivity;
 import com.chaychan.news.ui.activity.VideoDetailActivity;
 import com.chaychan.news.ui.activity.WebViewActivity;
-import com.chaychan.news.ui.adapter.NewsAdapter;
+import com.chaychan.news.ui.adapter.NewsListAdapter;
+import com.chaychan.news.ui.adapter.VideoListAdapter;
 import com.chaychan.news.ui.base.BaseFragment;
 import com.chaychan.news.ui.presenter.NewsListPresenter;
 import com.chaychan.news.utils.ListUtils;
@@ -145,7 +146,13 @@ public class NewsListFragment extends BaseFragment<NewsListPresenter> implements
 
     @Override
     public void initListener() {
-        mNewsAdapter = new NewsAdapter(mActivity, mChannelCode, isVideoList, mNewsList);
+        if (isVideoList){
+            //如果是视频列表
+            mNewsAdapter = new VideoListAdapter(mNewsList);
+        }else{
+            //其他新闻列表
+            mNewsAdapter = new NewsListAdapter(mChannelCode,mNewsList);
+        }
         mRvNews.setAdapter(mNewsAdapter);
 
         mNewsAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
