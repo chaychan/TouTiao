@@ -69,5 +69,5 @@ dependencies {
     compile project(':jcvideoplayer-lib')
     compile project(':statusbar-lib')
     compile 'com.github.chaychan:SlideCloseLib:1.0.0'
-    compile 'com.github.chaychan:MultipleItemRvAdapter:1.0.2'
+    compile 'com.github.chaychan:MultipleItemRvAdapter:1.0.3'
 }
