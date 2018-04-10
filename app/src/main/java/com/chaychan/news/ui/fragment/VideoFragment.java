@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import com.chaychan.news.R;
 import com.chaychan.news.constants.Constant;
 import com.chaychan.news.model.entity.Channel;
-import com.chaychan.news.ui.adapter.ChannelAdapter;
+import com.chaychan.news.ui.adapter.ChannelPagerAdapter;
 import com.chaychan.news.ui.base.BaseFragment;
 import com.chaychan.news.ui.base.BasePresenter;
 import com.chaychan.news.utils.UIUtils;
@@ -86,8 +86,8 @@ public class VideoFragment extends BaseFragment {
 
     @Override
     public void initListener() {
-        ChannelAdapter channelAdapter = new ChannelAdapter(mFrgamentList, mChannelList,getChildFragmentManager());
-        mVpContent.setAdapter(channelAdapter);
+        ChannelPagerAdapter channelPagerAdapter = new ChannelPagerAdapter(mFrgamentList, mChannelList,getChildFragmentManager());
+        mVpContent.setAdapter(channelPagerAdapter);
         mVpContent.setOffscreenPageLimit(mFrgamentList.size());
 
         mTabChannel.setTabPaddingLeftAndRight(UIUtils.dip2Px(10), UIUtils.dip2Px(10));

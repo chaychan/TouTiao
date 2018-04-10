@@ -14,4 +14,10 @@
         <item name="android:ellipsize">end</item>
         <item name="android:textSize">16sp</item>
     </style>
+
+
+    <style name="dialogSlideAnim" mce_bogus="1" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/dialog_bottom_slide_in</item>
+        <item name="android:windowExitAnimation">@anim/dialog_bottom_slide_out</item>
+    </style>
 </resources>

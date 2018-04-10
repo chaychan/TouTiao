@@ -26,4 +26,7 @@ public class Constant {
     /**获取评论列表每页的数目*/
     public static final int COMMENT_PAGE_SIZE = 20;
 
+    public static final String DATA_SELECTED = "dataSelected";
+    public static final String DATA_UNSELECTED = "dataUnselected";
+
 }
