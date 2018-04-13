@@ -3,12 +3,13 @@ package com.chaychan.news.ui.adapter;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
 
+import com.chad.library.adapter.base.BaseViewHolder;
 import com.chaychan.adapter.MultipleItemRvAdapter;
 import com.chaychan.news.model.entity.News;
-import com.chaychan.news.ui.adapter.provider.CenterPicNewsItemProvider;
-import com.chaychan.news.ui.adapter.provider.RightPicNewsItemProvider;
-import com.chaychan.news.ui.adapter.provider.TextNewsItemProvider;
-import com.chaychan.news.ui.adapter.provider.ThreePicNewsItemProvider;
+import com.chaychan.news.ui.adapter.provider.news.CenterPicNewsItemProvider;
+import com.chaychan.news.ui.adapter.provider.news.RightPicNewsItemProvider;
+import com.chaychan.news.ui.adapter.provider.news.TextNewsItemProvider;
+import com.chaychan.news.ui.adapter.provider.news.ThreePicNewsItemProvider;
 import com.chaychan.news.utils.ListUtils;
 
 import java.util.List;
@@ -19,7 +20,7 @@ import java.util.List;
  * @date 2018/3/22  11
  */
 
-public class NewsListAdapter extends MultipleItemRvAdapter<News> {
+public class NewsListAdapter extends MultipleItemRvAdapter<News,BaseViewHolder> {
 
     /**
      * 纯文字布局(文章、广告)

@@ -20,8 +20,8 @@ import com.chaychan.news.model.entity.NewsRecord;
 import com.chaychan.news.model.event.DetailCloseEvent;
 import com.chaychan.news.model.event.TabRefreshCompletedEvent;
 import com.chaychan.news.model.event.TabRefreshEvent;
+import com.chaychan.news.ui.activity.NewsDetailActivity;
 import com.chaychan.news.ui.activity.NewsDetailBaseActivity;
-import com.chaychan.news.ui.activity.NewsDetailDetailActivity;
 import com.chaychan.news.ui.activity.VideoDetailActivity;
 import com.chaychan.news.ui.activity.WebViewActivity;
 import com.chaychan.news.ui.adapter.NewsListAdapter;
@@ -186,7 +186,7 @@ public class NewsListFragment extends BaseFragment<NewsListPresenter> implements
                         return;
                     }
                     //其他新闻
-                    intent = new Intent(mActivity, NewsDetailDetailActivity.class);
+                    intent = new Intent(mActivity, NewsDetailActivity.class);
                 }
 
                 intent.putExtra(NewsDetailBaseActivity.CHANNEL_CODE, mChannelCode);

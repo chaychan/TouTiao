@@ -27,7 +27,6 @@ public class NewsDetailPresenter extends BasePresenter<INewsDetailView> {
         addSubscription(mApiService.getComment(groupId, itemId, offset + "", String.valueOf(Constant.COMMENT_PAGE_SIZE)), new Subscriber<CommentResponse>() {
             @Override
             public void onCompleted() {
-
             }
 
             @Override

@@ -25,6 +25,7 @@ import java.util.List;
  */
 
 public class ChannelAdapter extends BaseMultiItemQuickAdapter<Channel,BaseViewHolder> {
+
     private BaseViewHolder mEditViewHolder;
     private boolean mIsEdit;
     private long startTime;
