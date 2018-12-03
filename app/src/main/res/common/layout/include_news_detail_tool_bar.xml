@@ -78,7 +78,8 @@
                     android:singleLine="true"
                     android:textColor="#fffafafa"
                     android:textSize="8sp"
-                    android:visibility="gone"/>
+                    android:text="1"
+                    android:visibility="visible"/>
             </FrameLayout>
         </FrameLayout>
 

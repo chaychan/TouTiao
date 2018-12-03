@@ -2,6 +2,7 @@ package com.chaychan.news.app;
 
 import com.chaychan.news.BuildConfig;
 import com.chaychan.news.app.base.BaseApp;
+import com.github.anzewei.parallaxbacklayout.ParallaxHelper;
 import com.socks.library.KLog;
 
 import org.litepal.LitePalApplication;
@@ -21,5 +22,7 @@ public class MyApp extends BaseApp {
         //**************************************相关第三方SDK的初始化等操作*************************************************
         KLog.init(BuildConfig.DEBUG);//初始化KLog
         LitePalApplication.initialize(getApplicationContext());//初始化litePal
+
+        registerActivityLifecycleCallbacks(ParallaxHelper.getInstance());
     }
 }

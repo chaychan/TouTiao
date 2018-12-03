@@ -383,6 +383,8 @@ public class NewsListFragment extends BaseFragment<NewsListPresenter> implements
             newsList.remove(0);//移除第一个，因为第一个是置顶新闻，重复
         }
 
+        KLog.e(newsList);
+
         long endTime = System.currentTimeMillis();
 
         //由于是读取数据库，如果耗时不足1秒，则1秒后才收起加载更多

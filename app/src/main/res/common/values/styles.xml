@@ -9,20 +9,6 @@
         <item name="windowNoTitle">?android:windowNoTitle</item>
     </style>
 
-    <style name="AppTheme.Slide" parent="@style/AppTheme">
-        <!--Required-->
-        <item name="android:windowBackground">@android:color/transparent</item>
-        <item name="android:windowIsTranslucent">true</item>
-        <item name="android:windowAnimationStyle">@style/AppTheme.Slide.Animation</item>
-    </style>
-
-    <style name="AppTheme.Slide.Animation" parent="@android:style/Animation.Activity">
-        <item name="android:activityOpenEnterAnimation">@anim/anim_slide_in</item>
-        <item name="android:activityOpenExitAnimation">@anim/anim_slide_out</item>
-        <item name="android:activityCloseEnterAnimation">@anim/anim_slide_in</item>
-        <item name="android:activityCloseExitAnimation">@anim/anim_slide_out</item>
-    </style>
-
     <!-- 自定义进度条 -->
     <style name="StyleProgressBarMini" parent="@android:style/Widget.ProgressBar.Horizontal">
         <item name="android:maxHeight">100dip</item>

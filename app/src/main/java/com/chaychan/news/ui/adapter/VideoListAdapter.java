@@ -30,6 +30,8 @@ import static android.view.View.VISIBLE;
 
 public class VideoListAdapter extends BaseQuickAdapter<News,BaseViewHolder> {
 
+    private boolean isVideoParsing; //视频是否在解析的标识
+
     public VideoListAdapter( @Nullable List<News> data) {
         super(R.layout.item_video_list, data);
     }
@@ -74,6 +76,12 @@ public class VideoListAdapter extends BaseQuickAdapter<News,BaseViewHolder> {
         videoPlayer.setOnVideoClickListener(new OnVideoClickListener() {
             @Override
             public void onVideoClickToStart() {
+                if (isVideoParsing){
+                    KLog.e("视频正在解析，不重复调用...");
+                    return;
+                }else{
+                    isVideoParsing = true;
+                }
                 //点击播放
                 helper.setVisible(R.id.ll_duration, false);//隐藏时长
                 helper.setVisible(R.id.ll_title,false);//隐藏标题栏
@@ -85,6 +93,7 @@ public class VideoListAdapter extends BaseQuickAdapter<News,BaseViewHolder> {
                         UIUtils.postTaskSafely(new Runnable() {
                             @Override
                             public void run() {
+                                isVideoParsing = false;//更改视频是否在解析的标识
                                 videoPlayer.setUp(url, JCVideoPlayer.SCREEN_LAYOUT_LIST,news.title);
                                 videoPlayer.seekToInAdvance = news.video_detail_info.progress;
                                 videoPlayer.startVideo();
@@ -94,6 +103,8 @@ public class VideoListAdapter extends BaseQuickAdapter<News,BaseViewHolder> {
 
                     @Override
                     public void onDecodeError() {
+                        isVideoParsing = false;//更改视频是否在解析的标识
+                        UIUtils.showToast("解析视频失败，请重试");
                     }
                 };
                 decoder.decodePath(news.url);

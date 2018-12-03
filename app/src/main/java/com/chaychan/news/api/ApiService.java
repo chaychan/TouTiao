@@ -71,7 +71,9 @@ public interface ApiService {
             "Origin:http://toutiao.iiilab.com"
 
     })
-    @POST("http://service.iiilab.com/video/toutiao")
-    Observable<VideoPathResponse> getVideoPath(@Query("link") String link,@Query("r") String r,@Query("s") String s);
+
+    @POST("https://www.parsevideo.com/api.php")
+    Observable<VideoPathResponse> parseVideo(@Query("url") String url,@Query("hash")String hash);
+
 }
 

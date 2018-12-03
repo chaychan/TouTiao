@@ -9,9 +9,11 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 
-import com.chaychan.lib.SlidingLayout;
 import com.chaychan.news.listener.PermissionListener;
 import com.chaychan.news.ui.activity.MainActivity;
+import com.chaychan.news.utils.UIUtils;
+import com.github.anzewei.parallaxbacklayout.ParallaxHelper;
+import com.github.anzewei.parallaxbacklayout.widget.ParallaxBackLayout;
 import com.github.nukc.stateview.StateView;
 
 import org.greenrobot.eventbus.EventBus;
@@ -22,6 +24,10 @@ import java.util.List;
 import java.util.ListIterator;
 
 import butterknife.ButterKnife;
+
+import static com.github.anzewei.parallaxbacklayout.ViewDragHelper.EDGE_LEFT;
+import static com.github.anzewei.parallaxbacklayout.widget.ParallaxBackLayout.EDGE_MODE_DEFAULT;
+import static com.github.anzewei.parallaxbacklayout.widget.ParallaxBackLayout.LAYOUT_COVER;
 
 /**
  * @author ChayChan
@@ -44,8 +50,23 @@ public abstract class BaseActivity<T extends BasePresenter>  extends AppCompatAc
         super.onCreate(savedInstanceState);
 
         if (enableSlideClose()) {
-            SlidingLayout rootView = new SlidingLayout(this);
-            rootView.bindActivity(this);
+            ParallaxBackLayout layout = ParallaxHelper.getParallaxBackLayout(this, true);
+            layout.setEdgeMode(EDGE_MODE_DEFAULT);//边缘滑动
+            layout.setEdgeFlag(getEdgeDirection());
+            layout.setLayoutType(getSlideLayoutType(),null);
+
+            layout.setSlideCallback(new ParallaxBackLayout.ParallaxSlideCallback() {
+                @Override
+                public void onStateChanged(int state) {
+                    //收起软键盘
+                    UIUtils.hideInput(getWindow().getDecorView());
+                }
+
+                @Override
+                public void onPositionChanged(float percent) {
+
+                }
+            });
         }
 
         this.savedInstanceState = savedInstanceState;
@@ -69,6 +90,22 @@ public abstract class BaseActivity<T extends BasePresenter>  extends AppCompatAc
 
     public boolean enableSlideClose() {
         return true;
+    }
+
+    /**
+     * 默认为左滑，子类可重写返回对应的方向
+     * @return
+     */
+    public int getEdgeDirection(){
+        return EDGE_LEFT;
+    }
+
+    /**
+     * 默认为覆盖滑动关闭效果，子类可重写
+     * @return
+     */
+    public int getSlideLayoutType() {
+        return LAYOUT_COVER;
     }
 
     public void initView() {

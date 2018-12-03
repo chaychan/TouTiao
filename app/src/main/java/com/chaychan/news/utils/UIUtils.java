@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.os.Handler;
 import android.util.TypedValue;
+import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Toast;
 
 import com.chaychan.news.app.MyApp;
@@ -190,5 +192,13 @@ public class UIUtils {
      */
     public static int sp2px(int sp) {
         return (int) (TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, sp, getResource().getDisplayMetrics()) + 0.5f);
+    }
+
+    /**
+     * 收起软键盘
+     */
+    public static void hideInput(View view) {
+        InputMethodManager imm = (InputMethodManager) UIUtils.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
 }
