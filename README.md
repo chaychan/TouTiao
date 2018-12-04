@@ -18,7 +18,12 @@
 
 
 # Apk下载地址
+
 [[点击下载体验](https://raw.githubusercontent.com/chaychan/TouTiao/master/apk/news.apk)]
+
+扫码下载体验：
+
+![](https://raw.githubusercontent.com/chaychan/TouTiaoPics/master/screenshot/apk_qrcode.png)  
 
 # Blog
 [http://blog.csdn.net/chay_chan/article/details/75319452](http://blog.csdn.net/chay_chan/article/details/75319452)
