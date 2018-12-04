@@ -2,7 +2,19 @@
 
 精仿今日头条，数据是抓取今日头条App的数据。使用RxJava + Retrofit + MVP开发的开源项目，仅供学习用途。觉得对你有帮助的话请帮忙star一下，让更多人知道，多谢啦！
 
-感谢大神 wey ye，项目中参考到他做过的仿今日头条项目
+
+### 2018-12-04 更新内容：  
+
+&emsp;&emsp;**项目已经发布很久了，最近看到有不少小伙伴帮我star，想想自己已经好久没有维护这个项目了，主要是因为忙，最近抽空把issue上提出的问题解决了，方便需要参考到其中某些功能的小伙伴使用，同时也希望这个项目可以成为我在github上首个star破k的项目，希望小伙伴们可以帮忙star一下，多谢了，项目的话我也会继续维护和更新。**
+    
+- 更改右滑关闭的依赖库，解决8.0以上系统不兼容右滑的问题；
+
+- 修改视频解析逻辑，之前通过加载详情页成功后延迟5秒获取html中的video标签内的视频地址，体验极差，故花了几天时间寻找解析头条视频地址的方法，经过多次实验终于成功；
+
+- 解决视频播放错乱的问题；更换了最新版的饺子播放器；    
+
+- 整理项目结构，包的路径等 
+
 
 
 # Apk下载地址
@@ -35,7 +47,7 @@
 ## 非视频新闻详情页面
 ![](https://raw.githubusercontent.com/chaychan/TouTiaoPics/master/screenshot/text_detail.gif)  
 
-##查看和保存图片
+## 查看和保存图片 
 ![](https://raw.githubusercontent.com/chaychan/TouTiaoPics/master/screenshot/watch_save_img.gif)  
 
 ## 视频播放、视频详情页面
@@ -51,7 +63,7 @@
 * [BottomBarLayout(轻量级底部导航栏)](https://github.com/chaychan/BottomBarLayout)
 * [BaseRecyclerViewAdapterHelper(ReclerView万能适配器)](https://github.com/CymChad/BaseRecyclerViewAdapterHelper)
 * [StateView(用于几种状态布局的切换)](https://github.com/nukc/StateView)
-* [JieCaoVideoPlayer(视频播放)](https://github.com/lipangit/JieCaoVideoPlayer)
+* [JieCaoVideoPlayer，改名 JiaoZiVideoPlayer (视频播放)](https://github.com/lipangit/JiaoZiVideoPlayer)
 * [BGARefreshLayout-Android(下拉刷新)](https://github.com/bingoogolapple/BGARefreshLayout-Android)
 * [Eyes(修改状态栏颜色)](https://github.com/imflyn/Eyes)
 * [ColorTrackTabLayout](https://github.com/yewei02538/ColorTrackTabLayout)

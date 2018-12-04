@@ -8,14 +8,15 @@ import com.chaychan.news.R;
 import com.chaychan.news.model.event.TabRefreshCompletedEvent;
 import com.chaychan.news.model.event.TabRefreshEvent;
 import com.chaychan.news.ui.adapter.MainTabAdapter;
-import com.chaychan.news.ui.base.BaseActivity;
-import com.chaychan.news.ui.base.BaseFragment;
-import com.chaychan.news.ui.base.BasePresenter;
+import com.chaychan.news.base.BaseActivity;
+import com.chaychan.news.base.BaseFragment;
+import com.chaychan.news.base.BasePresenter;
 import com.chaychan.news.ui.fragment.HomeFragment;
 import com.chaychan.news.ui.fragment.MicroFragment;
 import com.chaychan.news.ui.fragment.MineFragment;
 import com.chaychan.news.ui.fragment.VideoFragment;
 import com.chaychan.uikit.NoScrollViewPager;
+import com.chaychan.uikit.statusbar.Eyes;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -25,8 +26,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.Bind;
-import flyn.Eyes;
-import fm.jiecao.jcvideoplayer_lib.JCVideoPlayer;
+import cn.jzvd.Jzvd;
 
 public class MainActivity extends BaseActivity {
 
@@ -81,7 +81,7 @@ public class MainActivity extends BaseActivity {
             public void onItemSelected(BottomBarItem bottomBarItem, int position) {
                 setStatusBarColor(position);//设置状态栏颜色
 
-                JCVideoPlayer.releaseAllVideos();//底部页签切换或者是下拉刷新，释放资源
+                Jzvd.releaseAllVideos();//底部页签切换或者是下拉刷新，释放资源
 
                 if (position == 0 || position == 1) {
                     //如果点击的是首页
@@ -161,7 +161,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public void onBackPressed() {
-        if (JCVideoPlayer.backPress()) {
+        if (Jzvd.backPress()) {
             return;
         }
         super.onBackPressed();
@@ -170,6 +170,6 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onPause() {
         super.onPause();
-        JCVideoPlayer.releaseAllVideos();
+        Jzvd.releaseAllVideos();
     }
 }

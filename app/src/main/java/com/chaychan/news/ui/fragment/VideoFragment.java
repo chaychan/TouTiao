@@ -10,8 +10,8 @@ import com.chaychan.news.R;
 import com.chaychan.news.constants.Constant;
 import com.chaychan.news.model.entity.Channel;
 import com.chaychan.news.ui.adapter.ChannelPagerAdapter;
-import com.chaychan.news.ui.base.BaseFragment;
-import com.chaychan.news.ui.base.BasePresenter;
+import com.chaychan.news.base.BaseFragment;
+import com.chaychan.news.base.BasePresenter;
 import com.chaychan.news.utils.UIUtils;
 import com.socks.library.KLog;
 
@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.Bind;
-import fm.jiecao.jcvideoplayer_lib.JCVideoPlayer;
+import cn.jzvd.Jzvd;
 import me.weyye.library.colortrackview.ColorTrackTabLayout;
 
 /**
@@ -112,7 +112,7 @@ public class VideoFragment extends BaseFragment {
             @Override
             public void onPageSelected(int position) {
                 //当页签切换的时候，如果有播放视频，则释放资源
-                JCVideoPlayer.releaseAllVideos();
+                Jzvd.releaseAllVideos();
             }
 
             @Override

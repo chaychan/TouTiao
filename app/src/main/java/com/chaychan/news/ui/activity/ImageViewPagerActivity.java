@@ -16,8 +16,8 @@ import com.bumptech.glide.request.FutureTarget;
 import com.bumptech.glide.request.target.Target;
 import com.chaychan.news.R;
 import com.chaychan.news.listener.PermissionListener;
-import com.chaychan.news.ui.base.BaseActivity;
-import com.chaychan.news.ui.base.BasePresenter;
+import com.chaychan.news.base.BaseActivity;
+import com.chaychan.news.base.BasePresenter;
 import com.chaychan.news.ui.fragment.BigImageFragment;
 import com.chaychan.news.utils.FileUtils;
 import com.chaychan.news.utils.UIUtils;
@@ -31,7 +31,7 @@ import java.util.Map;
 
 import butterknife.Bind;
 import butterknife.OnClick;
-import flyn.Eyes;
+import com.chaychan.uikit.statusbar.Eyes;
 
 /**
  * @author ChayChan

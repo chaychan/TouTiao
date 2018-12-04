@@ -9,14 +9,14 @@ import android.widget.TextView;
 
 import com.chaychan.news.R;
 import com.chaychan.news.model.entity.NewsDetail;
-import com.chaychan.news.ui.view.NewsDetailHeaderView;
+import com.chaychan.news.ui.widget.NewsDetailHeaderView;
 import com.chaychan.news.utils.GlideUtils;
 import com.chaychan.news.utils.UIUtils;
 import com.socks.library.KLog;
 
 import butterknife.Bind;
 import butterknife.OnClick;
-import flyn.Eyes;
+import com.chaychan.uikit.statusbar.Eyes;
 
 /**
  * @author ChayChan

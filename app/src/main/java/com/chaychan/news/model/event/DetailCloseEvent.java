@@ -9,7 +9,7 @@ public class DetailCloseEvent {
 
     private String channelCode;
     private int position;
-    private int progress;
+    private long progress;
     private int commentCount;
 
     public String getChannelCode() {
@@ -28,11 +28,11 @@ public class DetailCloseEvent {
         this.position = position;
     }
 
-    public int getProgress() {
+    public long getProgress() {
         return progress;
     }
 
-    public void setProgress(int progress) {
+    public void setProgress(long progress) {
         this.progress = progress;
     }
 

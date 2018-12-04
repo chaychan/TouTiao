@@ -3,8 +3,8 @@ package com.chaychan.news.ui.fragment;
 import android.view.View;
 
 import com.chaychan.news.R;
-import com.chaychan.news.ui.base.BaseFragment;
-import com.chaychan.news.ui.base.BasePresenter;
+import com.chaychan.news.base.BaseFragment;
+import com.chaychan.news.base.BasePresenter;
 import com.socks.library.KLog;
 
 /**

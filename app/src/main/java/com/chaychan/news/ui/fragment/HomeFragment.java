@@ -13,8 +13,8 @@ import com.chaychan.news.constants.Constant;
 import com.chaychan.news.listener.OnChannelListener;
 import com.chaychan.news.model.entity.Channel;
 import com.chaychan.news.ui.adapter.ChannelPagerAdapter;
-import com.chaychan.news.ui.base.BaseFragment;
-import com.chaychan.news.ui.base.BasePresenter;
+import com.chaychan.news.base.BaseFragment;
+import com.chaychan.news.base.BasePresenter;
 import com.chaychan.news.utils.PreUtils;
 import com.chaychan.news.utils.UIUtils;
 import com.google.gson.Gson;
@@ -26,7 +26,7 @@ import java.util.List;
 
 import butterknife.Bind;
 import butterknife.OnClick;
-import fm.jiecao.jcvideoplayer_lib.JCVideoPlayer;
+import cn.jzvd.Jzvd;
 import me.weyye.library.colortrackview.ColorTrackTabLayout;
 
 /**
@@ -145,7 +145,7 @@ public class HomeFragment extends BaseFragment implements OnChannelListener {
             @Override
             public void onPageSelected(int position) {
                  //当页签切换的时候，如果有播放视频，则释放资源
-                JCVideoPlayer.releaseAllVideos();
+                Jzvd.releaseAllVideos();
             }
 
             @Override

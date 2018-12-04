@@ -14,11 +14,11 @@ import com.chaychan.news.model.entity.CommentData;
 import com.chaychan.news.model.event.DetailCloseEvent;
 import com.chaychan.news.model.response.CommentResponse;
 import com.chaychan.news.ui.adapter.CommentAdapter;
-import com.chaychan.news.ui.base.BaseActivity;
-import com.chaychan.news.ui.presenter.NewsDetailPresenter;
-import com.chaychan.news.ui.view.NewsDetailHeaderView;
+import com.chaychan.news.base.BaseActivity;
+import com.chaychan.news.presenter.NewsDetailPresenter;
+import com.chaychan.news.ui.widget.NewsDetailHeaderView;
 import com.chaychan.news.utils.ListUtils;
-import com.chaychan.news.view.INewsDetailView;
+import com.chaychan.news.presenter.view.INewsDetailView;
 import com.chaychan.uikit.powerfulrecyclerview.PowerfulRecyclerView;
 import com.github.nukc.stateview.StateView;
 
@@ -29,8 +29,8 @@ import java.util.List;
 
 import butterknife.Bind;
 import butterknife.OnClick;
-import fm.jiecao.jcvideoplayer_lib.JCMediaManager;
-import fm.jiecao.jcvideoplayer_lib.JCVideoPlayerManager;
+import cn.jzvd.JZMediaManager;
+import cn.jzvd.JzvdMgr;
 
 /**
  * @author ChayChan
@@ -41,6 +41,7 @@ import fm.jiecao.jcvideoplayer_lib.JCVideoPlayerManager;
 public abstract class NewsDetailBaseActivity extends BaseActivity<NewsDetailPresenter> implements INewsDetailView, BaseQuickAdapter.RequestLoadMoreListener {
 
     public static final String CHANNEL_CODE = "channelCode";
+    public static final String VIDEO_URL = "videoUrl";
     public static final String PROGRESS = "progress";
     public static final String POSITION = "position";
     public static final String DETAIL_URL = "detailUrl";
@@ -205,9 +206,9 @@ public abstract class NewsDetailBaseActivity extends BaseActivity<NewsDetailPres
             event.setCommentCount(mCommentResponse.total_number);
         }
 
-        if (isVideoDetail && JCMediaManager.instance().mediaPlayer != null && JCVideoPlayerManager.getCurrentJcvd() != null){
+        if (isVideoDetail && JZMediaManager.instance() != null && JzvdMgr.getCurrentJzvd() != null){
             //如果是视频详情
-            int progress = JCMediaManager.instance().mediaPlayer.getCurrentPosition();
+            long progress = JZMediaManager.instance().getCurrentPosition();
             event.setProgress(progress);
         }
 

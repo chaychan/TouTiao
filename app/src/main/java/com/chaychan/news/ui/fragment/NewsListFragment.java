@@ -2,7 +2,6 @@ package com.chaychan.news.ui.fragment;
 
 import android.content.Intent;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.View;
@@ -17,6 +16,7 @@ import com.chaychan.news.R;
 import com.chaychan.news.constants.Constant;
 import com.chaychan.news.model.entity.News;
 import com.chaychan.news.model.entity.NewsRecord;
+import com.chaychan.news.model.entity.VideoEntity;
 import com.chaychan.news.model.event.DetailCloseEvent;
 import com.chaychan.news.model.event.TabRefreshCompletedEvent;
 import com.chaychan.news.model.event.TabRefreshEvent;
@@ -26,13 +26,14 @@ import com.chaychan.news.ui.activity.VideoDetailActivity;
 import com.chaychan.news.ui.activity.WebViewActivity;
 import com.chaychan.news.ui.adapter.NewsListAdapter;
 import com.chaychan.news.ui.adapter.VideoListAdapter;
-import com.chaychan.news.ui.base.BaseFragment;
-import com.chaychan.news.ui.presenter.NewsListPresenter;
+import com.chaychan.news.base.BaseFragment;
+import com.chaychan.news.presenter.NewsListPresenter;
 import com.chaychan.news.utils.ListUtils;
+import com.chaychan.news.utils.MyJZVideoPlayerStandard;
 import com.chaychan.news.utils.NetWorkUtils;
 import com.chaychan.news.utils.NewsRecordHelper;
 import com.chaychan.news.utils.UIUtils;
-import com.chaychan.news.view.lNewsListView;
+import com.chaychan.news.presenter.view.lNewsListView;
 import com.chaychan.uikit.TipView;
 import com.chaychan.uikit.powerfulrecyclerview.PowerfulRecyclerView;
 import com.chaychan.uikit.refreshlayout.BGANormalRefreshViewHolder;
@@ -48,12 +49,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.Bind;
-import fm.jiecao.jcvideoplayer_lib.JCMediaManager;
-import fm.jiecao.jcvideoplayer_lib.JCVideoPlayer;
-import fm.jiecao.jcvideoplayer_lib.JCVideoPlayerManager;
-import fm.jiecao.jcvideoplayer_lib.JCVideoPlayerStandard;
-
-import static fm.jiecao.jcvideoplayer_lib.JCVideoPlayer.CURRENT_STATE_PLAYING;
+import cn.jzvd.JZMediaManager;
+import cn.jzvd.Jzvd;
+import cn.jzvd.JzvdMgr;
 
 /**
  * @author ChayChan
@@ -168,13 +166,19 @@ public class NewsListFragment extends BaseFragment<NewsListPresenter> implements
                 if (news.has_video) {
                     //视频
                     intent = new Intent(mActivity, VideoDetailActivity.class);
-                    if (JCVideoPlayerManager.getCurrentJcvd() != null) {
-                        JCVideoPlayerStandard videoPlayer = (JCVideoPlayerStandard) JCVideoPlayerManager.getCurrentJcvd();
+                    if (JZMediaManager.instance() != null && JzvdMgr.getCurrentJzvd() != null) {
                         //传递进度
-                        int progress = JCMediaManager.instance().mediaPlayer.getCurrentPosition();
+                        long progress = JZMediaManager.instance().getCurrentPosition();
                         if (progress != 0) {
                             intent.putExtra(VideoDetailActivity.PROGRESS, progress);
                         }
+
+                        VideoEntity videoDetailInfo = news.video_detail_info;
+                        String videoUrl = "";
+                        if (videoDetailInfo != null && !TextUtils.isEmpty(videoDetailInfo.parse_video_url)){
+                            videoUrl = videoDetailInfo.parse_video_url;
+                        }
+                        intent.putExtra(VideoDetailActivity.VIDEO_URL,videoUrl);
                     }
                 } else {
                     //非视频新闻
@@ -205,22 +209,19 @@ public class NewsListFragment extends BaseFragment<NewsListPresenter> implements
 
         if (isVideoList) {
             //如果是视频列表，监听滚动
-            mRvNews.setOnScrollListener(new RecyclerView.OnScrollListener() {
+            mRvNews.addOnChildAttachStateChangeListener(new RecyclerView.OnChildAttachStateChangeListener() {
                 @Override
-                public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
-                    if (JCVideoPlayerManager.getCurrentJcvd() != null) {
-                        JCVideoPlayerStandard videoPlayer = (JCVideoPlayerStandard) JCVideoPlayerManager.getCurrentJcvd();
-                        if (videoPlayer.currentState == CURRENT_STATE_PLAYING) {
-                            //如果正在播放
-                            LinearLayoutManager linearLayoutManager = (LinearLayoutManager) mRvNews.getLayoutManager();
-                            int firstVisibleItemPosition = linearLayoutManager.findFirstVisibleItemPosition();
-                            int lastVisibleItemPosition = linearLayoutManager.findLastVisibleItemPosition();
+                public void onChildViewAttachedToWindow(View view) {
 
-                            if (firstVisibleItemPosition > videoPlayer.getPosition() || lastVisibleItemPosition < videoPlayer.getPosition()) {
-                                //如果第一个可见的条目位置大于当前播放videoPlayer的位置
-                                //或最后一个可见的条目位置小于当前播放videoPlayer的位置，释放资源
-                                JCVideoPlayer.releaseAllVideos();
-                            }
+                }
+
+                @Override
+                public void onChildViewDetachedFromWindow(View view) {
+                    MyJZVideoPlayerStandard jzvd = (MyJZVideoPlayerStandard) view.findViewById(R.id.video_player);
+                    if (jzvd != null && jzvd.jzDataSource != null && jzvd.jzDataSource.containsTheUrl(JZMediaManager.getCurrentUrl())) {
+                        Jzvd currentJzvd = JzvdMgr.getCurrentJzvd();
+                        if (currentJzvd != null && currentJzvd.currentScreen != Jzvd.SCREEN_WINDOW_FULLSCREEN) {
+                            Jzvd.releaseAllVideos();
                         }
                     }
                 }
@@ -459,12 +460,11 @@ public class NewsListFragment extends BaseFragment<NewsListPresenter> implements
 
         if (news.video_detail_info != null){
             //如果有视频
-            int progress = event.getProgress();
+            long progress = event.getProgress();
             news.video_detail_info.progress = progress;
         }
 
         //刷新adapter
-        mNewsList.set(position, news);
         mNewsAdapter.notifyDataSetChanged();
     }
 

@@ -1,16 +1,22 @@
 apply plugin: 'com.android.library'
 android {
-    compileSdkVersion rootProject.ext.compileSdkVersion
-    buildToolsVersion rootProject.ext.buildToolsVersion
+    compileSdkVersion compile_sdk_version
+    buildToolsVersion build_tools_version
 
     defaultConfig {
-        minSdkVersion rootProject.ext.minSdkVersion
-        targetSdkVersion rootProject.ext.targetSdkVersion
+        minSdkVersion min_sdk_version
+        targetSdkVersion target_sdk_version
         versionCode 1
         versionName "1.0"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-
+        javaCompileOptions {
+            annotationProcessorOptions {
+                includeCompileClasspath true
+                arguments = [moduleName: project.getName()]
+            }
+        }
+        javaCompileOptions { annotationProcessorOptions { includeCompileClasspath = true } }
     }
     buildTypes {
         release {
@@ -19,25 +25,45 @@ android {
         }
     }
 
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
     dataBinding {
         enabled = true
     }
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+    api fileTree(dir: 'libs', include: ['*.jar'])
+    configurations {
+        all*.exclude group: 'com.android.support', module: 'support-v13'
+    }
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile "com.android.support:appcompat-v7:${rootProject.ext.supportVersion}"
-    testCompile 'junit:junit:4.12'
-    compile 'com.github.nukc.stateview:library:1.2.1'
-    compile 'me.weyye.ColorTrackTabLayout:library:1.0.1'
-    compile 'com.jaeger.recyclerviewdivider:library:1.0.1'
-    compile 'com.dalong:refreshlayout:1.0.3'
-    compile 'com.github.chaychan:BottomBarLayout:1.0.1'
-    compile 'com.github.limedroid:XRichText:v1.0.0'
-    compile 'de.hdodenhof:circleimageview:2.0.0'
-    compile 'com.github.chrisbanes:PhotoView:2.0.0'
-    compile 'com.sunfusheng:glideimageview:1.0.0'
+
+    api 'junit:junit:4.12'
+
+    //Android Support
+    api "com.android.support:support-v4:$android_support_version"
+    api "com.android.support:appcompat-v7:$android_support_version"
+    api "com.android.support:recyclerview-v7:$android_support_version"
+    api "com.android.support:design:$android_support_version"
+
+
+    api 'com.github.nukc.stateview:library:1.2.1'
+    api 'me.weyye.ColorTrackTabLayout:library:1.0.1'
+    api 'com.jaeger.recyclerviewdivider:library:1.0.1'
+    api 'com.dalong:refreshlayout:1.0.3'
+    api 'com.github.chaychan:BottomBarLayout:1.0.1'
+    api 'com.github.limedroid:XRichText:v1.0.0'
+    api 'de.hdodenhof:circleimageview:2.0.0'
+    api 'com.github.chrisbanes:PhotoView:2.0.0'
+    api 'com.sunfusheng:glideimageview:1.0.0'
+
+    //glide
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.0.0-RC0'
+    annotationProcessor 'com.google.auto.service:auto-service:1.0-rc3'
 }

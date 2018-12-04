@@ -9,7 +9,7 @@
         android:layout_height="200dp"
         >
 
-        <fm.jiecao.jcvideoplayer_lib.JCVideoPlayerStandard
+        <com.chaychan.news.utils.MyJZVideoPlayerStandard
             android:id="@+id/video_player"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
@@ -18,7 +18,7 @@
             android:id="@+id/ll_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/jc_title_bg"
+            android:background="@drawable/jz_title_bg"
             android:orientation="vertical"
             android:paddingLeft="15dp"
             android:paddingRight="30dp"

@@ -3,11 +3,11 @@ package com.chaychan.news.ui.activity;
 import android.content.Intent;
 
 import com.chaychan.news.R;
-import com.chaychan.news.ui.base.BaseActivity;
-import com.chaychan.news.ui.base.BasePresenter;
+import com.chaychan.news.base.BaseActivity;
+import com.chaychan.news.base.BasePresenter;
 import com.chaychan.news.utils.UIUtils;
 
-import flyn.Eyes;
+import com.chaychan.uikit.statusbar.Eyes;
 
 /**
  * @author ChayChan

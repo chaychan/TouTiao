@@ -6,8 +6,10 @@ import android.text.TextUtils;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.chaychan.news.R;
+import com.chaychan.news.listener.VideoStateListenerAdapter;
 import com.chaychan.news.model.entity.News;
 import com.chaychan.news.utils.GlideUtils;
+import com.chaychan.news.utils.MyJZVideoPlayerStandard;
 import com.chaychan.news.utils.TimeUtils;
 import com.chaychan.news.utils.UIUtils;
 import com.chaychan.news.utils.VideoPathDecoder;
@@ -15,9 +17,7 @@ import com.socks.library.KLog;
 
 import java.util.List;
 
-import fm.jiecao.jcvideoplayer_lib.JCVideoPlayer;
-import fm.jiecao.jcvideoplayer_lib.JCVideoPlayerStandard;
-import fm.jiecao.jcvideoplayer_lib.OnVideoClickListener;
+import cn.jzvd.JzvdStd;
 
 import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
@@ -28,28 +28,28 @@ import static android.view.View.VISIBLE;
  * @date 2018/3/22  17:13
  */
 
-public class VideoListAdapter extends BaseQuickAdapter<News,BaseViewHolder> {
+public class VideoListAdapter extends BaseQuickAdapter<News, BaseViewHolder> {
 
     private boolean isVideoParsing; //视频是否在解析的标识
 
-    public VideoListAdapter( @Nullable List<News> data) {
+    public VideoListAdapter(@Nullable List<News> data) {
         super(R.layout.item_video_list, data);
     }
 
     @Override
     protected void convert(BaseViewHolder helper, News news) {
-        if (TextUtils.isEmpty(news.title)){
+        if (TextUtils.isEmpty(news.title)) {
             //如果没有标题，则直接跳过
             return;
         }
 
-        helper.setVisible(R.id.ll_title,true);//显示标题栏
+        helper.setVisible(R.id.ll_title, true);//显示标题栏
         helper.setText(R.id.tv_title, news.title);//设置标题
 
         String format = UIUtils.getString(R.string.video_play_count);
         int watchCount = news.video_detail_info.video_watch_count;
         String countUnit = "";
-        if (watchCount> 10000){
+        if (watchCount > 10000) {
             watchCount = watchCount / 10000;
             countUnit = "万";
         }
@@ -64,28 +64,31 @@ public class VideoListAdapter extends BaseQuickAdapter<News,BaseViewHolder> {
                 .setText(R.id.tv_comment_count, String.valueOf(news.comment_count));//评论数
 
 
-        JCVideoPlayerStandard videoPlayer = helper.getView(R.id.video_player);
+        MyJZVideoPlayerStandard videoPlayer = helper.getView(R.id.video_player);
         GlideUtils.load(mContext, news.video_detail_info.detail_video_large_image.url, videoPlayer.thumbImageView, R.color.color_d8d8d8);//设置缩略图
 
-        videoPlayer.setAllControlsVisible(GONE, GONE, VISIBLE, GONE, VISIBLE, VISIBLE, GONE);
+        videoPlayer.setAllControlsVisiblity(GONE, GONE, VISIBLE, GONE, VISIBLE, VISIBLE, GONE);
         videoPlayer.tinyBackImageView.setVisibility(GONE);
-        videoPlayer.setPosition(helper.getAdapterPosition());//绑定Position
 
         videoPlayer.titleTextView.setText("");//清除标题,防止复用的时候出现
 
-        videoPlayer.setOnVideoClickListener(new OnVideoClickListener() {
+        videoPlayer.setVideoStateListener(new VideoStateListenerAdapter() {
             @Override
-            public void onVideoClickToStart() {
-                if (isVideoParsing){
+            public void onStartClick() {
+                if (isVideoParsing) {
                     KLog.e("视频正在解析，不重复调用...");
                     return;
-                }else{
+                } else {
                     isVideoParsing = true;
                 }
+
+                //隐藏开始按钮 显示加载中
+                videoPlayer.setAllControlsVisiblity(GONE, GONE, GONE, VISIBLE, VISIBLE, VISIBLE, GONE);
+
                 //点击播放
                 helper.setVisible(R.id.ll_duration, false);//隐藏时长
-                helper.setVisible(R.id.ll_title,false);//隐藏标题栏
-                //
+                helper.setVisible(R.id.ll_title, false);//隐藏标题栏
+
                 VideoPathDecoder decoder = new VideoPathDecoder() {
                     @Override
                     public void onSuccess(String url) {
@@ -93,18 +96,29 @@ public class VideoListAdapter extends BaseQuickAdapter<News,BaseViewHolder> {
                         UIUtils.postTaskSafely(new Runnable() {
                             @Override
                             public void run() {
-                                isVideoParsing = false;//更改视频是否在解析的标识
-                                videoPlayer.setUp(url, JCVideoPlayer.SCREEN_LAYOUT_LIST,news.title);
-                                videoPlayer.seekToInAdvance = news.video_detail_info.progress;
+                                //更改视频是否在解析的标识
+                                isVideoParsing = false;
+
+                                //准备播放
+                                videoPlayer.setUp(url, news.title, JzvdStd.SCREEN_WINDOW_LIST);
+
+                                if (news.video_detail_info != null) {
+                                    news.video_detail_info.parse_video_url = url; //赋值解析后的视频地址
+                                    videoPlayer.seekToInAdvance = news.video_detail_info.progress; //设置播放进度
+                                }
+
+                                //开始播放
                                 videoPlayer.startVideo();
                             }
                         });
                     }
 
                     @Override
-                    public void onDecodeError() {
+                    public void onDecodeError(String errorMsg) {
                         isVideoParsing = false;//更改视频是否在解析的标识
-                        UIUtils.showToast("解析视频失败，请重试");
+                        //隐藏加载中 显示开始按钮
+                        videoPlayer.setAllControlsVisiblity(GONE, GONE, VISIBLE, GONE, VISIBLE, VISIBLE, GONE);
+                        UIUtils.showToast(errorMsg);
                     }
                 };
                 decoder.decodePath(news.url);

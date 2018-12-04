@@ -57,8 +57,13 @@ public interface ApiService {
     Observable<CommentResponse> getComment(@Query("group_id") String groupId, @Query("item_id") String itemId, @Query("offset") String offset, @Query("count") String count);
 
     /**
+     * 获取视频页的html代码
+     */
+    @GET
+    Observable<String> getVideoHtml(@Url String url);
+
+    /**
      * 获取视频数据json
-     *
      * @param url
      * @return
      */

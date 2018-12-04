@@ -2,7 +2,7 @@
 <litepal>
     <dbname value="news" ></dbname>
 
-    <version value="1" ></version>
+    <version value="3" ></version>
 
     <list>
         <mapping class="com.chaychan.news.model.entity.NewsRecord"></mapping>

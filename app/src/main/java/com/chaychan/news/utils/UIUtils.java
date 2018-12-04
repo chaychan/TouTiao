@@ -16,6 +16,10 @@ public class UIUtils {
 
     public static Toast mToast;
 
+    public static void showToast(int msgId) {
+        showToast(getString(msgId));
+    }
+
     public static void showToast(String msg) {
         showToast(msg, Toast.LENGTH_SHORT);
     }

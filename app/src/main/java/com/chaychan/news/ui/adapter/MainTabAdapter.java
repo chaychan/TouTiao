@@ -4,7 +4,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
-import com.chaychan.news.ui.base.BaseFragment;
+import com.chaychan.news.base.BaseFragment;
 
 import java.util.ArrayList;
 import java.util.List;

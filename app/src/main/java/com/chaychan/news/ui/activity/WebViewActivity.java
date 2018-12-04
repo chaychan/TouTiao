@@ -12,13 +12,13 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.chaychan.news.R;
-import com.chaychan.news.ui.base.BaseActivity;
-import com.chaychan.news.ui.base.BasePresenter;
+import com.chaychan.news.base.BaseActivity;
+import com.chaychan.news.base.BasePresenter;
 import com.chaychan.news.utils.UIUtils;
 
 import butterknife.Bind;
 import butterknife.OnClick;
-import flyn.Eyes;
+import com.chaychan.uikit.statusbar.Eyes;
 
 /**
  * @author ChayChan

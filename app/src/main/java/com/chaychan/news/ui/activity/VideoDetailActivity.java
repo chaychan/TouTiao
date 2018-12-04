@@ -2,20 +2,22 @@ package com.chaychan.news.ui.activity;
 
 import android.hardware.Sensor;
 import android.hardware.SensorManager;
+import android.text.TextUtils;
 import android.widget.ImageView;
 
 import com.chaychan.news.R;
 import com.chaychan.news.model.entity.NewsDetail;
-import com.chaychan.news.ui.view.NewsDetailHeaderView;
+import com.chaychan.news.ui.widget.NewsDetailHeaderView;
+import com.chaychan.news.utils.MyJZVideoPlayerStandard;
 import com.chaychan.news.utils.UIUtils;
 import com.chaychan.news.utils.VideoPathDecoder;
 import com.socks.library.KLog;
 
 import butterknife.Bind;
 import butterknife.OnClick;
-import flyn.Eyes;
-import fm.jiecao.jcvideoplayer_lib.JCVideoPlayer;
-import fm.jiecao.jcvideoplayer_lib.JCVideoPlayerStandard;
+import cn.jzvd.Jzvd;
+import cn.jzvd.JzvdStd;
+import com.chaychan.uikit.statusbar.Eyes;
 
 import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
@@ -29,15 +31,14 @@ import static android.view.View.VISIBLE;
 public class VideoDetailActivity extends NewsDetailBaseActivity {
 
     @Bind(R.id.video_player)
-    JCVideoPlayerStandard mVideoPlayer;
+    MyJZVideoPlayerStandard mVideoPlayer;
     @Bind(R.id.iv_back)
     ImageView ivBack;
 
     private SensorManager mSensorManager;
-    private JCVideoPlayer.JCAutoFullscreenListener mSensorEventListener;
-    private int mProgress;
-    private int mPosition;
-    private String mChannelCode;
+    private Jzvd.JZAutoFullscreenListener mSensorEventListener;
+    private long mProgress;
+    private String mVideoUrl;
 
     @Override
     public void initView() {
@@ -48,16 +49,17 @@ public class VideoDetailActivity extends NewsDetailBaseActivity {
     @Override
     public void initData() {
         super.initData();
-        mProgress = getIntent().getIntExtra(PROGRESS, 0);
+        mProgress = getIntent().getLongExtra(PROGRESS, 0);
+        mVideoUrl = getIntent().getStringExtra(VIDEO_URL);
     }
 
     @Override
     public void initListener() {
         super.initListener();
         mSensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
-        mSensorEventListener = new JCVideoPlayer.JCAutoFullscreenListener();
+        mSensorEventListener = new Jzvd.JZAutoFullscreenListener();
 
-        mVideoPlayer.setAllControlsVisible(GONE, GONE, VISIBLE, GONE, VISIBLE, VISIBLE, GONE);
+        mVideoPlayer.setAllControlsVisiblity(GONE, GONE, VISIBLE, GONE, VISIBLE, VISIBLE, GONE);
         mVideoPlayer.titleTextView.setVisibility(GONE);
     }
 
@@ -68,6 +70,7 @@ public class VideoDetailActivity extends NewsDetailBaseActivity {
 
     @Override
     public void onGetNewsDetailSuccess(NewsDetail newsDetail) {
+        KLog.e("onGetNewsDetailSuccess", newsDetail.url);
         newsDetail.content = "";
         mHeaderView.setDetail(newsDetail, new NewsDetailHeaderView.LoadWebListener() {
             @Override
@@ -77,34 +80,45 @@ public class VideoDetailActivity extends NewsDetailBaseActivity {
             }
         });
 
-        VideoPathDecoder decoder = new VideoPathDecoder() {
-            @Override
-            public void onSuccess(String url) {
-                KLog.e("onGetNewsDetailSuccess", url);
-                UIUtils.postTaskSafely(new Runnable() {
-                    @Override
-                    public void run() {
-                        mVideoPlayer.setUp(url, JCVideoPlayer.SCREEN_LAYOUT_LIST, newsDetail.title);
-                        mVideoPlayer.seekToInAdvance = mProgress;//设置进度
-                        mVideoPlayer.startVideo();
-                    }
-                });
-            }
+        if (TextUtils.isEmpty(mVideoUrl)) {
+            KLog.e("没有视频地址，解析视频");
+            //如果列表页还没有获取到解析的视频地址，则详情页需要解析视频
+            VideoPathDecoder decoder = new VideoPathDecoder() {
+                @Override
+                public void onSuccess(String url) {
+                    KLog.e("onGetNewsDetailSuccess", url);
+                    UIUtils.postTaskSafely(new Runnable() {
+                        @Override
+                        public void run() {
+                            playVideo(url, newsDetail);
+                        }
+                    });
+                }
 
-            @Override
-            public void onDecodeError() {
+                @Override
+                public void onDecodeError(String errorMsg) {
+                    UIUtils.showToast(errorMsg);
+                }
+            };
+            decoder.decodePath(newsDetail.url);
+        } else {
+            //如果有视频地址，则直接播放
+            KLog.e("有视频地址，则直接播放");
+            playVideo(mVideoUrl, newsDetail);
+        }
+    }
 
-            }
-        };
-        decoder.decodePath(newsDetail.url);
-        KLog.e("onGetNewsDetailSuccess", newsDetail.url);
+    private void playVideo(String url, NewsDetail newsDetail) {
+        mVideoPlayer.setUp(url, newsDetail.title, JzvdStd.SCREEN_WINDOW_LIST);
+        mVideoPlayer.seekToInAdvance = mProgress;//设置进度
+        mVideoPlayer.startVideo();
     }
 
     @Override
     protected void onPause() {
         super.onPause();
         mSensorManager.unregisterListener(mSensorEventListener);
-        JCVideoPlayer.releaseAllVideos();
+        Jzvd.releaseAllVideos();
     }
 
     @Override
@@ -116,7 +130,7 @@ public class VideoDetailActivity extends NewsDetailBaseActivity {
 
     @Override
     public void onBackPressed() {
-        if (JCVideoPlayer.backPress()) {
+        if (Jzvd.backPress()) {
             return;
         }
         postVideoEvent(true);
