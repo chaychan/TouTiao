@@ -89,7 +89,7 @@
 
 6.视频列表播放中的视频不可见时停止播放。
 
-7.查看和保存图片。(8.23更新)
+7.查看和保存图片。
 
 # 技术要点
 
@@ -97,11 +97,11 @@
 
 [http://www.tuicool.com/articles/BJjQZf](http://www.tuicool.com/articles/BJjQZf)
 
-2.新闻列表多种Item布局的展示，使用的是BaseRecyclerViewAdapterHelper，ReclerView万能适配器，多布局使用可参考下面的网址：
+2.新闻列表多种Item布局的展示，使用的是我封装的MultipleItemRvAdapter，基于BaseRecyclerViewAdapterHelper封装，便于多布局条目的管理：
 
-[https://github.com/CymChad/BaseRecyclerViewAdapterHelper/issues/968](https://github.com/CymChad/BaseRecyclerViewAdapterHelper/issues/968)
+[https://github.com/chaychan/MultipleItemRvAdapter](https://github.com/chaychan/MultipleItemRvAdapter "https://github.com/chaychan/MultipleItemRvAdapter")
 
-3.视频源地址的解析，原先参照大神 wey ye的解析已经失效，目前是通过[今日头条视频解析](http://toutiao.iiilab.com/ )这个网址解析的，传入新闻详情页地址，获取到对应视频下载地址的json数据。
+3.视频源地址的解析，请查看我写的博客 [今日头条最新视频解析方法](https://blog.csdn.net/Chay_Chan/article/details/84825807)
 
 # 声明
 这个属于个人开发作品，仅做学习交流使用，如用到实际项目还需多考虑其他因素如并发等，请多多斟酌。**诸位勿传播于非技术人员，拒绝用于商业用途，数据均属于非正常渠道获取，原作公司拥有所有权利。**

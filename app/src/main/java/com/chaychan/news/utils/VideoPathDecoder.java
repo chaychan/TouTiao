@@ -31,6 +31,7 @@ public abstract class VideoPathDecoder {
     public static final String TAG = VideoPathDecoder.class.getSimpleName();
 
     public void decodePath(String srcUrl) {
+        KLog.e(TAG,"srcUrl: " + srcUrl);
         ApiRetrofit.getInstance().getApiService().getVideoHtml(srcUrl)
                 .flatMap(new Func1<String, Observable<ResultResponse<VideoModel>>>() {
                     @Override
@@ -39,9 +40,10 @@ public abstract class VideoPathDecoder {
                         Matcher matcher = pattern.matcher(response);
                         if (matcher.find()) {
                             String videoId = matcher.group(1);
-                            KLog.e(TAG,videoId);
+                            KLog.e(TAG,"videoId: " + videoId);
                             //1.将/video/urls/v/1/toutiao/mp4/{videoid}?r={Math.random()}，进行crc32加密。
                             String r = getRandom();
+                            KLog.e(TAG,"r: " + r);
                             CRC32 crc32 = new CRC32();
                             String s = String.format(ApiConstant.URL_VIDEO, videoId, r);
                             //进行crc32加密。
@@ -49,6 +51,7 @@ public abstract class VideoPathDecoder {
                             String crcString = crc32.getValue() + "";
                             //2.访问http://i.snssdk.com/video/urls/v/1/toutiao/mp4/{videoid}?r={Math.random()}&s={crc32值}
                             String url = ApiConstant.HOST_VIDEO + s + "&s=" + crcString;
+                            KLog.e(TAG,"s: " + crcString);
                             Log.i(TAG,url);
                             return ApiRetrofit.getInstance().getApiService().getVideoData(url);
                         }
@@ -98,6 +101,7 @@ public abstract class VideoPathDecoder {
 
                     @Override
                     public void onNext(Video video) {
+                        KLog.e(TAG,"视频地址：" + video.main_url);
                         onSuccess(video.main_url);
                     }
                 });
