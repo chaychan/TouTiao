@@ -39,7 +39,8 @@ public class MyJZVideoPlayerStandard extends JzvdStd {
         switch (v.getId()){
             case cn.jzvd.R.id.thumb:
             case cn.jzvd.R.id.start:
-                if (currentState == CURRENT_STATE_IDLE){
+                KLog.e("state: " + currentState);
+                if (currentState == CURRENT_STATE_IDLE || currentState == CURRENT_STATE_NORMAL){
                     //如果当前是闲置状态，点击后回调点击播放的事件
                     if (mListener != null){
                         mListener.onStartClick();
@@ -74,6 +75,7 @@ public class MyJZVideoPlayerStandard extends JzvdStd {
     @Override
     public void startVideo() {
         super.startVideo();
+        KLog.i(TAG,"startVideo...");
         if (mListener != null) {
             mListener.onStart();
         }
