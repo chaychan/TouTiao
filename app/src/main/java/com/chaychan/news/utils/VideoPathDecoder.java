@@ -1,5 +1,6 @@
 package com.chaychan.news.utils;
 
+import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Log;
 
@@ -36,10 +37,14 @@ public abstract class VideoPathDecoder {
                 .flatMap(new Func1<String, Observable<ResultResponse<VideoModel>>>() {
                     @Override
                     public Observable<ResultResponse<VideoModel>> call(String response) {
-                        Pattern pattern = Pattern.compile("videoId: '(.+)'");
+                        Pattern pattern = Pattern.compile("\"video_id\":(.+)");
                         Matcher matcher = pattern.matcher(response);
                         if (matcher.find()) {
                             String videoId = matcher.group(1);
+                            if (TextUtils.isEmpty(videoId) || videoId.split(",") == null) {
+                                return null;
+                            }
+                            videoId = videoId.split(",")[0].replace("\"","");
                             KLog.e(TAG,"videoId: " + videoId);
                             //1.将/video/urls/v/1/toutiao/mp4/{videoid}?r={Math.random()}，进行crc32加密。
                             String r = getRandom();
