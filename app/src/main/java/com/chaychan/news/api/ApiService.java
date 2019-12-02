@@ -68,7 +68,7 @@ public interface ApiService {
      * @return
      */
     @GET
-    Observable<ResultResponse<VideoModel>> getVideoData(@Url String url);
+    Observable<VideoModel> getVideoData(@Url String url);
 
     @Headers({
             "Content-Type:application/x-www-form-urlencoded; charset=UTF-8",
